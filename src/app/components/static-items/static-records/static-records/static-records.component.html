@@ -1,0 +1,55 @@
+<div class="main-wrapper">
+
+  <div class="table-wrapper">
+      <mat-form-field class="filter-field">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter by Recipt ID or Name">
+      </mat-form-field>
+        
+        <div class="mat-elevation-z8 table-content">
+          <table mat-table [dataSource]="dataSource" matSort>
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="reciptID">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Recipt ID </th>
+              <td mat-cell *matCellDef="let row"> {{row.reciptID}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+              <td mat-cell *matCellDef="let row"> {{row.clientName}} </td>
+            </ng-container>
+        
+            <!-- Counter Column -->
+            <ng-container matColumnDef="counter">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Counter/User </th>
+              <td mat-cell *matCellDef="let row"> {{row.counterUser}} </td>
+            </ng-container>
+
+            <!-- Date Column -->
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+              <td mat-cell *matCellDef="let row"> {{row.dateOfInvoice | date}} </td>
+            </ng-container>
+        
+            <!-- Action Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+              <td mat-cell *matCellDef="let row"> 
+                <button mat-mini-fab color="primary" matTooltip="view bill" (click)="onViewBill(row._id)"><mat-icon>view_day</mat-icon></button>  
+                <button mat-mini-fab color="primary" matTooltip="view bill" class="delete-record-btn" (click)="generatePdf(row._id)"><mat-icon>picture_as_pdf</mat-icon></button>  
+                <button mat-mini-fab color="warn" class="delete-record-btn" matTooltip="delete bill" (click)="onDeleteBill(row._id)"><mat-icon>delete</mat-icon></button>  
+              </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+        </div>
+        
+  </div>
+
+</div>

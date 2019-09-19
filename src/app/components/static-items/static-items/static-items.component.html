@@ -1,0 +1,104 @@
+<div class="main-wrapper">
+  <div class="items-detail-section">
+    <!-- DISPLAY ITEMS WILL SHOW HERE -->
+    <div class="display-items" *ngIf="displayedItems !== undefined && displayedItems.length > 0">
+      <div class="items-loop" *ngFor="let item of displayedItems" (click)="onAddItem(item._id)">
+        <div class="item-display-img mat-elevation-z4" matRipple matRippleUnbounded="false">
+          <img [src]="item.itemImage" class="item-img">
+        </div>
+        <div class="item-title">
+          <mat-label><strong>{{item.itemName}}</strong></mat-label>
+        </div>
+        <div class="item-price">
+          <mat-label>Rs: <strong>{{item.itemPrice}}</strong></mat-label>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+
+    <!-- SELECTED ITEMS WILL SHOW HERE -->
+    <div class="item-selected-container">
+      <div class="section-name-cont">
+        <p>Client Details</p>
+        <button mat-mini-fab class="reset-button" (click)="resetForm()" matTooltip="reset form">
+          <mat-icon>replay</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <form [formGroup]="cartItemsForm">
+        <div class="client-details">
+          <mat-form-field appearance="standard" class="half-width-fields">
+            <mat-label>Client Name</mat-label>
+            <input matInput placeholder="Alice" formControlName="clientName">
+            <mat-icon matSuffix>perm_identity</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="half-width-fields">
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dateOfInvoice">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="items-list">
+          <p>Items Purchased</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="selected-items-loop" formArrayName="itemsPurchased">
+          <div class="individual-item-loop" *ngFor="let cartItem of getItemsFormArray.controls; let i = index"
+            [formGroupName]="i">
+            <mat-form-field appearance="standard" class="small-width-fields">
+              <mat-label>Item Name</mat-label>
+              <input matInput placeholder="Burger" formControlName="itemName">
+              <mat-icon matSuffix>shopping_cart</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="small-width-fields" class="hidden-cat-field">
+              <input matInput placeholder="Burger" formControlName="itemCategory">
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="xsmall-width-fields">
+              <mat-label>Price</mat-label>
+              <input matInput placeholder="x" formControlName="itemPrice" type="number">
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="xsmall-width-fields">
+              <mat-label>Discount</mat-label>
+              <input matInput placeholder="x" formControlName="itemDiscount" type="number">
+              <mat-icon matSuffix>money_off</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="xsmall-width-fields">
+              <mat-label>Item Quantity</mat-label>
+              <input matInput placeholder="x" formControlName="itemQuantity" type="number" min="1" placeholder="1">
+              <mat-icon matSuffix>format_list_numbered</mat-icon>
+            </mat-form-field>
+
+            <button mat-mini-fab (click)="onDeleteFromCart(i, cartItem.value._id)" color="primary">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="recipt-preview-area">
+    <!-- BILL PREVIEW  -->
+    <div class="bill-preview">
+      <app-static-recipt-preview [previewData]="reciptPreviewData"></app-static-recipt-preview>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-btns" *ngIf="getItemsFormArray.length > 0">
+      <button mat-raised-button class="save-btn" (click)="saveItem()" [disabled]="!cartItemsForm.valid">
+        <mat-icon>save</mat-icon> Save
+      </button>
+      <button mat-raised-button color="primary" class="save-and-print-btn" [disabled]="!cartItemsForm.valid">
+        <mat-icon>print</mat-icon>Save & Print
+      </button>
+    </div>
+  </div>
+
+</div>

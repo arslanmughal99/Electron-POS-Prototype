@@ -1,0 +1,29 @@
+*{
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
+.title{
+    text-align: center;
+}
+
+.head-icon{
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+.head-icon > mat-icon{
+    text-align: center;
+    font-size : 100px;
+}
+
+.mat-ico{
+    width: 100%;
+}
+
+mat-dialog-content{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    overflow-wrap: wrap;
+}

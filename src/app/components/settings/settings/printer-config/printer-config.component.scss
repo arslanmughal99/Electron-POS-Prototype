@@ -1,0 +1,49 @@
+.printer-settings-section{
+    display: flex;
+    flex-direction: column;
+}
+
+mat-divider{
+    margin: 10px auto;
+}
+
+.short-inp{
+    width: 150px;
+}
+
+.print-iter{
+
+}
+
+.print-logo{
+
+}
+
+.logo-preview-image{
+    width: auto;
+    max-width: 99%;
+    height: 250px;
+    // max-height: 300%;
+}
+
+mat-label{
+    margin-right: 10px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.pmt{
+    margin-top: 10px; 
+}
+
+.wrong-file-error{
+    margin-left: 10px;
+    color: rgb(255, 77, 77);
+}
+
+.choose-logo-btn{
+    margin-top: 10px;
+}
+
+.remoe-logo-btn{
+    margin-left: 10px;
+}

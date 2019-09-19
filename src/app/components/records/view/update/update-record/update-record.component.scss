@@ -1,0 +1,49 @@
+mat-label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.section-1{
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-form-field{
+    padding: 10px;
+}
+
+mat-divider{
+    padding: 10px, auto;
+}
+
+.section-3{
+    overflow: auto;
+    height: auto;
+    max-height: calc(50vh - 100px);
+    display: flex;
+    flex-direction: column;
+}
+
+.short-input-fileds{
+    width: 150px;
+}
+
+.right-label{
+    flex-basis: 50%;
+    text-align: right;
+}
+
+.action-btns-section{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.update-cancel-action>button{
+    margin-left: 5px;
+}
+

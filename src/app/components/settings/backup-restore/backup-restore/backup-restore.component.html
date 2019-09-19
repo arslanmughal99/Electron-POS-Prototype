@@ -1,0 +1,58 @@
+<div class="main-wrapper">
+
+  <div class="create-backup-section">
+    <div>
+      <mat-label class="headding-lebel">Create Backup</mat-label>
+    </div>
+    <mat-label>Create a Backup of your all records and let you save</mat-label>
+    <button mat-raised-button class="full-width-button" color="primary" (click)="onCreateBackup()"><mat-icon>settings_backup_restore</mat-icon> Create Backup </button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="restore-section">
+    <div>
+        <mat-label class="headding-lebel">Restore Backup</mat-label>
+    </div>
+    <div>
+      <mat-label>This will remove all previous records and restore from backup file that is previously created. (Its recomended to create backup before doing this)</mat-label>
+    </div>
+    <div>
+        <mat-divider class="short-divider"></mat-divider>
+      </div>
+    <div>
+      <mat-label class="dander-message">Yes i know that this will permently delete old records that are currently in app.</mat-label>
+    </div>
+    <mat-form-field appearance="standard" class="full-width-button">
+        <mat-label>Type above red line to continue</mat-label>
+        <input matInput #restore>
+        <!-- <mat-icon matSuffix>money</mat-icon> -->
+    </mat-form-field>
+    <button mat-raised-button class="full-width-button" color="primary" (click)="onRestoreDB()" [disabled]="restore.value !== 'Yes i know that this will permently delete old records that are currently in app.'"><mat-icon>restore</mat-icon> Restore Backup </button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="delete-section">
+    <div>
+      <mat-label class="headding-lebel">Delete All Records</mat-label>
+    </div>
+    <div>
+      <mat-label>This will delete all records currently available (Its recomended to create backup before doing this)</mat-label>
+    </div>
+    <div>
+        <mat-divider class="short-divider"></mat-divider>
+      </div>
+    <div>
+      <mat-label class="dander-message">Yes i know that this will permently delete all records that are currently in app.</mat-label>
+    </div>
+    <mat-form-field appearance="standard" class="full-width-button">
+        <mat-label>Type above red line to continue</mat-label>
+        <input matInput #delete>
+        <!-- <mat-icon matSuffix>money</mat-icon> -->
+    </mat-form-field>
+    <button mat-raised-button class="full-width-button" (click)="onDeleteDB()" color="primary" [disabled]="delete.value !== 'Yes i know that this will permently delete all records that are currently in app.'"><mat-icon>clear_all</mat-icon> Delete All Records </button>
+  
+  </div>
+
+</div>

@@ -1,0 +1,24 @@
+.main-wrapper{
+    padding: 1%;
+    height: calc(100vh - 85px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.table-content{
+    max-height: calc(100vh - 150px);
+    overflow: auto;
+}
+
+table{
+    width: 100%;
+}
+
+.filter-field{
+    width: 100%;
+}
+
+.delete-record-btn{
+    margin-left: 30px;
+}

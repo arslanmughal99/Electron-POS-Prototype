@@ -1,0 +1,64 @@
+<div class="example-container">
+  <div [class]="toolBarStatus">
+    <mat-toolbar color="primary" class="app-toolbar" fixedInViewport="true" fixedTopGap="56">
+      <mat-icon class="app-icon">insert_chart</mat-icon><span class="title-space"></span> <mat-label class="title-label"> Pulsar</mat-label>
+      <span class="example-fill-remaining-space"></span>
+      <button mat-icon-button aria-label="min-icon" class="toolbar-button" (click)="onAppMin()">
+        <mat-icon>minimize</mat-icon>
+      </button>
+          
+      <button mat-icon-button aria-label="min-max-icon" class="toolbar-button" (click)="onAppMinMax()">
+        <mat-icon>filter_none</mat-icon>
+      </button>
+              
+      <button mat-icon-button aria-label="close-icon" class="toolbar-button" (click)="onAppClose()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>  
+          
+  <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav mode="push" #drawer class="side-nav">
+        <mat-nav-list>
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('')" color="primary"><mat-icon>dashboard</mat-icon> DASHBOARD </button>
+        </mat-nav-list>
+        <mat-nav-list *ngIf="!staticItems">
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('regular-client')" color="primary"><mat-icon>account_box</mat-icon> REGULAR
+           </button>
+        </mat-nav-list>
+        <mat-nav-list *ngIf="staticItems">  
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('static-items')" color="primary"><mat-icon>filter_none</mat-icon> INVOICE </button>
+        </mat-nav-list>
+        <mat-nav-list *ngIf="staticItems"> 
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('static-bills')" color="primary"><mat-icon>receipt</mat-icon> RECORDS </button>
+        </mat-nav-list>
+        <mat-nav-list *ngIf="!staticItems"> 
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('regular-bills')" color="primary"><mat-icon>receipt</mat-icon> RECORDS </button>
+        </mat-nav-list>
+        <mat-nav-list> 
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('categories')" color="primary"><mat-icon>category</mat-icon> CATEGORIES </button>
+        </mat-nav-list>
+        <mat-nav-list> 
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('units')" color="primary"><mat-icon>casino</mat-icon> UNITS </button>
+        </mat-nav-list>
+        <mat-nav-list *ngIf="staticItems"> 
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('items-manager')" color="primary"><mat-icon>change_history</mat-icon> ITEMS </button>
+        </mat-nav-list>
+        <mat-nav-list>
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('settings')" color="primary"><mat-icon>settings</mat-icon> SETTINGS </button>
+        </mat-nav-list>
+        <div class="license-status">
+          <div>
+            <mat-label class="license-days-info"><strong>License Status :</strong> {{licenseStatus.daysRemanning}} Days</mat-label>
+          </div>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+          <router-outlet></router-outlet>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<div class="floating-action-button">
+  <button mat-mini-fab (click)="drawer.toggle()"><mat-icon>list</mat-icon></button>
+</div>

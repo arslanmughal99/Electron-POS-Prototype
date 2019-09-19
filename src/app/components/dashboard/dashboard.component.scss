@@ -1,0 +1,73 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-wrapper{
+    padding: 1%;
+    height: 100vh;
+}
+
+.status-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.status-details>div{
+    flex-basis: calc(100% / 3);
+}
+
+.mode-name{
+    color: lightcoral;
+}
+
+.large-label-font{
+    font-size: 120%;
+}
+
+.section-1{
+    text-align: left;
+    // background-color: lightblue;
+}
+
+.section-2{
+    text-align: center;
+    // background-color: lightcoral;
+}
+
+.section-3{
+    text-align: right;
+    // background-color: lightgreen;
+}
+
+mat-divider{
+    margin: 5px 0;
+}
+
+.main-chart-statistic{
+    height: 20%;
+    width: 100%;
+}
+
+.bottom-section{
+    // background-color: lightpink;
+    height: 100%;
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.bills-status{
+    position: relative;
+    height: 50%;
+    width: 44%;
+}
+
+.earning-chart{
+    width: 55%;
+    height: 50%;
+    max-height: 50%;
+}

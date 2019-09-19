@@ -1,0 +1,13 @@
+<div class="head-icon">
+  <mat-icon color="warn" class="mat-ico">error_outline</mat-icon>
+  <h1 mat-dialog-title class="title">System date time not set !</h1>
+</div>
+<mat-dialog-content>
+  <div>
+    <mat-label>Looks Like your system date time is not set, Please set correct datetime and restart application.</mat-label>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button (click)="onRestart()"><mat-icon>replay</mat-icon> Restart</button>
+  <button mat-raised-button color="primary" (click)="onClose()"><mat-icon>close</mat-icon> Close</button>
+</mat-dialog-actions>

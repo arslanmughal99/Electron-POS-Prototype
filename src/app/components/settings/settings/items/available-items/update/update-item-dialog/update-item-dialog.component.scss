@@ -1,0 +1,45 @@
+.main-wrapper{
+    padding: 1%;
+}
+
+mat-form-field{
+    padding: 5px;
+}
+
+.item-name{
+    width: 100%;    
+}
+
+.half-width-fields{
+    width: 48%;
+}
+
+.img-container{
+    height: 200px;
+    overflow: hidden;
+}
+
+.item-img{
+    width: 100%;
+    height: auto;
+}
+
+.half-width-fields{
+    width: 47%;
+}
+
+.action-btns{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.action-btns>button{
+    width: 100%;
+    margin-left: 10px;
+}
+
+.final-section{
+    display: flex;
+}

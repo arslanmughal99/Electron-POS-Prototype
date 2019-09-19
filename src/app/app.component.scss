@@ -1,0 +1,41 @@
+.theme-action-area{
+    justify-content: space-evenly;
+    flex-direction: column;
+    // overflow: hidden;
+    display: flex;
+    z-index: 100;
+    height: 100%;
+    width: 0px;
+    float: right;
+    top: 40%;
+}
+
+.transform-theme-pallet{
+    transition-duration: 0.5s;
+    width: 90%
+}
+
+.main-theme-pallet-wrapper{
+    overflow: hidden;
+    position: absolute;
+    z-index: 100;
+    height: 30vh;
+    right: 0%;
+    width: 3%;
+    top: 40%;
+}
+
+.theme1-btn-color{
+    background-color: #ff1744;
+}
+
+.theme2-btn-color{
+    background-color: #9c27b0;
+}
+
+.theme3-btn-color{
+    background-color: #ffd600;
+}
+.theme4-btn-color{
+    background-color: #212121;
+}

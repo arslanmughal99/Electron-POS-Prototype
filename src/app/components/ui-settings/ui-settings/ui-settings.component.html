@@ -1,0 +1,44 @@
+<div class="main-wrapper">
+  <div class="oops-msg">
+    <mat-label class="headding-title">Opps !</mat-label>
+  </div>
+  <div class="status-msg-container">
+    <mat-label class="message-label">{{message}}</mat-label>
+  </div>
+  <div class="machine-vendor-id">
+    <div class="sub-container">
+      <div>
+        <mat-form-field>
+          <textarea matInput placeholder="Machine ID" [value]="machineID" disabled #machineid rows="3"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="copy-btn-div">
+        <button mat-raised-button color="primary" class="copy-btn" (click)="copyToClipboard(machineid.value)"><mat-icon>file_copy</mat-icon> copy machine ID</button>
+      </div>
+    </div>
+    <div class="sub-container">
+      <div>
+        <mat-form-field>
+          <textarea matInput placeholder="Vendor ID" [value]="vendorID" disabled #vendorid rows="4"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="copy-btn-div">
+        <button mat-raised-button color="primary" class="copy-btn" (click)="copyToClipboard(vendorid.value)"><mat-icon>file_copy</mat-icon> copy vendor ID</button>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="renew-licnese-container">
+    <div class="renew-licinse-headding">
+      <mat-label>Click "Renew License" to install a new license.</mat-label>
+    </div>
+    <div class="renew-license-btn" *ngIf="!renewed">
+      <button mat-raised-button color="primary" (click)="onCopyLicense()"><mat-icon>card_membership</mat-icon> Renew License</button>
+    </div>
+
+    <div class="renew-license-btn" *ngIf="renewed">
+      <button mat-raised-button color="primary" (click)="onRestartApp()"><mat-icon>replay</mat-icon> Restart App</button>
+    </div>
+
+  </div>
+</div>

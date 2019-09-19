@@ -1,0 +1,105 @@
+
+<form [formGroup]="inputForm">
+  <div class="wrapper-div">
+    <div class="create-item">
+
+      <!-- COMMON DETAILS SECTION -->
+      <div class="title-client-name">
+        <div class="title-content">
+          <div>
+            <p class="form-heading">{{formName}}</p>
+            <p class="form-subtitle">{{formSubTitle}}</p>
+          </div>
+          <div><button mat-mini-fab (click)="resetForm()" matTooltip="reset form" class="reset-btn"><mat-icon>replay</mat-icon></button></div>
+        </div>
+        <div class="client-common-details">
+
+            <mat-form-field appearance="standard" class="inp-ctrl">
+                <mat-label>Client Name</mat-label>
+                <input matInput placeholder="Alice Whitman" formControlName="clientName" required>
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="inp-ctrl">
+                <mat-label>Client Phone</mat-label>
+                <input matInput placeholder="0307xxxxxxx" type="tel" formControlName="clientPhone">
+                <mat-icon matSuffix>contact_phone</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="inp-ctrl">
+                <mat-label>Client CNIC</mat-label>
+                <input matInput placeholder="4240xxx..." type="tel" formControlName="clientCNIC">
+                <mat-icon matSuffix>credit_card</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="inp-ctrl">
+                <input matInput [matDatepicker]="picker" placeholder="Date" formControlName="dateOfInvoice">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>              
+
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+
+      <!-- DYNAMIC ITEMs DETATAIL SECTION -->
+      <div class="new-item-section" formArrayName="itemsPurchased">
+        <p class="form-heading items-Heading">Create Items</p>
+        <p class="form-subtitle">Add Items Here</p>
+        <div class="new-item-created" *ngFor="let item of getitemForm.controls; let i = index;" [formGroupName]="i">
+            <mat-form-field appearance="standard" class="item-name-field"> 
+                <mat-label>Item Name</mat-label>
+                <input matInput placeholder="Tenis Ball" formControlName="itemName" required>
+                <mat-icon matSuffix>shopping_cart</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="short-input-fileds" class="inp-ctrl2">
+              <mat-icon matSuffix>category</mat-icon>
+              <mat-select formControlName="itemCategory">
+                <mat-option *ngFor="let cat of categories" value={{cat}}>{{cat}}</mat-option>
+              </mat-select>
+              <mat-label>Category</mat-label>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="inp-ctrl2">
+              <mat-icon matSuffix>pie_chart</mat-icon>
+              <mat-select formControlName="unitOfMeasure">
+                <mat-option *ngFor="let unit of units" value={{unit}}>{{unit}}</mat-option>
+              </mat-select>
+              <mat-label>Unit</mat-label>
+            </mat-form-field>      
+
+            <mat-form-field appearance="standard" class="inp-ctrl2">
+                <mat-label>Qty</mat-label>
+                <input matInput type="number" placeholder="4" min="1" formControlName="itemQuantity">
+                <mat-icon matSuffix>layers</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="inp-ctrl2">
+                <mat-label>price per unit</mat-label>
+                <input matInput type="number" placeholder="100" min="1" formControlName="pricePerUnit">
+                <mat-icon matSuffix>money</mat-icon>
+            </mat-form-field>
+ 
+            <button mat-mini-fab color="primary" class="delete-item-btn" (click)="deleteItemField(i)" matTooltip="delete item"><mat-icon>delete</mat-icon></button>
+        </div>
+          <div class="add-item-btn">
+            <button mat-raised-button (click)="addItem()" matTooltip="add new item to items list"><mat-icon>add</mat-icon> add Item</button>
+          </div>
+      </div>
+    </div>
+    
+    <!-- ACTION SECTION -->
+    <div class="action-section">
+      <p class="form-subtitle text-center"><strong>Bill Preview</strong></p>
+      <div class="text-center recipt-preview" *ngIf="getitemForm.length > 0">
+        <app-recipt-view [previewData]="reciptPreviewData"></app-recipt-view>
+        <div class="action-btn-div">
+          <button mat-raised-button class="action-btn save-btn" [disabled]="!inputForm.valid" (click)="saveToDb()" matTooltip="only save"><mat-icon>save</mat-icon> Save</button>
+          <button mat-raised-button class="action-btn print-btn" [disabled]="!inputForm.valid" matTooltip="save then print" color="primary"><mat-icon>print</mat-icon> Save & Print</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

@@ -1,0 +1,24 @@
+.main-wrapper{
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100vh - 85px);
+}
+
+table {
+    width: 100%;
+}
+
+.table-content{
+    max-height: calc(100vh - 230px);
+    overflow: auto;
+}
+
+.action-btn-2{
+    margin-left: 5px;
+}
+
+.wide-input-field{
+    width: 100%;
+}

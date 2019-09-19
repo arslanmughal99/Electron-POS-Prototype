@@ -1,0 +1,80 @@
+<div class="main-wrapper">
+
+  <div class="supporting-details-sec">
+    <div><mat-label>Recipt ID: <strong>{{dialogData.reciptID}}</strong></mat-label></div>
+    <div><mat-label>Counter/User: <strong>{{dialogData.counterUser}}</strong></mat-label></div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="client-details-sec">
+    <div><mat-label>Name: <strong>{{dialogData.clientName}}</strong></mat-label></div>
+    <div><mat-label>Date: <strong>{{dialogData.dateOfInvoice | date}}</strong></mat-label></div>
+  </div>
+
+  <div class="items-section">
+    <div>
+      <mat-form-field class="wide-input-field">
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <!-- items Table will go here  -->
+      <div class="mat-elevation-z8 table-content">
+          <table mat-table [dataSource]="dataSource">
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+            </ng-container>
+        
+            <!-- Price Column -->
+            <ng-container matColumnDef="itemPrice">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> {{element.itemPrice}} </td>
+            </ng-container>
+        
+            <!-- Discount Column -->
+            <ng-container matColumnDef="itemDiscount">
+              <th mat-header-cell *matHeaderCellDef> Discount </th>
+              <td mat-cell *matCellDef="let element"> {{element.itemDiscount}} </td>
+            </ng-container>
+        
+            <!-- Quantity Column -->
+            <ng-container matColumnDef="itemQuantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let element"> {{element.itemQuantity}} </td>
+            </ng-container>
+        
+            <!-- item Total Column -->
+            <ng-container matColumnDef="total">
+              <th mat-header-cell *matHeaderCellDef> Total </th>
+              <td mat-cell *matCellDef="let element"> {{(element.itemPrice - element.itemDiscount) * element.itemQuantity}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        </div>
+        
+        <mat-divider></mat-divider>
+        <div class="supporting-details-sec">
+          <div><mat-label>Net Total:</mat-label></div>
+          <div><mat-label>Rs: <strong>{{itemsTotal.totalPrice}}</strong></mat-label></div>
+        </div>
+        
+        <mat-divider></mat-divider>
+        <div class="supporting-details-sec">
+          <div><mat-label>Sales Tax: {{dialogData.salesTaxPercent}}%</mat-label></div>
+          <div><mat-label>Rs: <strong>{{itemsTotal.salesTax}}</strong></mat-label></div>
+        </div>
+
+        <mat-divider></mat-divider>
+        <div class="supporting-details-sec">
+          <div><mat-label>Net Total:</mat-label></div>
+          <div><mat-label>Rs: <strong>{{itemsTotal.netTotal}}</strong></mat-label></div>
+        </div>
+
+    </div>
+  </div>
+
+</div>

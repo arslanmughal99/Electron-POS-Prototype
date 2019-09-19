@@ -1,0 +1,73 @@
+<div class="main-wrapper">
+
+  <div class="title-container">
+    <mat-label>Bill Preview</mat-label>
+  </div>
+  <mat-label>Client Details:</mat-label>
+  <mat-divider></mat-divider>
+  <div class="client-details">
+    <div class="client-name-date">
+      <mat-label>Name: <strong>{{previewData.clientName}}</strong></mat-label>
+    </div>
+    <div>
+      <mat-label>Date: <strong>{{previewData.dateOfInvoice | date}}</strong></mat-label>
+    </div>
+  </div>
+
+  <div class="items-list">
+    <mat-label>Items Purchased</mat-label>
+    <mat-divider></mat-divider>
+    <div class="title-header">
+      <div class="item-title-head">
+        <mat-label>Name</mat-label>
+      </div>
+      <div class="item-price-head">
+        <mat-label>Price</mat-label>
+      </div>
+      <div class="item-dis-head">
+        <mat-label>Dis</mat-label>
+      </div>
+      <div class="item-quantity-head">
+        <mat-label>Qty</mat-label>
+      </div>
+      <div class="item-total-head">
+        <mat-label>Total</mat-label>
+      </div>
+    </div>
+  <div class="item-loop-wrapper" *ngIf="previewData.itemsPurchased.length > 0">
+    <div class="item-loop" *ngFor="let item of previewData.itemsPurchased">
+      <div class="item-loop-name">
+        <mat-label><strong>{{item.itemName}}</strong></mat-label>
+      </div>
+      <div class="item-price">
+        <mat-label>{{item.itemPrice}}</mat-label>
+      </div>
+      <div class="item-discount">
+        <mat-label>{{item.itemDiscount}}</mat-label>
+      </div>
+      <div class="item-quantity">
+        <mat-label>{{item.itemQuantity}}</mat-label>
+      </div>
+      <div class="item-total">
+        <mat-label>{{(item.itemPrice - item.itemDiscount) * item.itemQuantity}}</mat-label>
+      </div>
+    </div>
+  </div>
+  <mat-divider *ngIf="itemsTotal.totalPrice > 0"></mat-divider>
+  <div class="net-total" *ngIf="itemsTotal.totalPrice > 0">
+    <div class="t-total"><mat-label><strong>Total: </strong></mat-label></div>
+    <div class="n-total"><mat-label><strong>Rs: </strong>{{itemsTotal.totalPrice}}</mat-label></div>
+  </div>
+  <mat-divider *ngIf="itemsTotal.totalPrice > 0"></mat-divider>
+  <div class="net-total" *ngIf="itemsTotal.totalPrice > 0">
+    <div class="t-total"><mat-label><strong>Sales Tax: </strong>{{appSettings.salesTaxPercent}}%</mat-label></div>
+    <div class="n-total"><mat-label>Rs: <strong>{{itemsTotal.salesTax}}</strong></mat-label></div>
+  </div>
+  <mat-divider *ngIf="itemsTotal.totalPrice > 0"></mat-divider>
+  <div class="net-total" *ngIf="itemsTotal.totalPrice > 0">
+    <div class="t-total"><mat-label><strong>Net Total:</strong></mat-label></div>
+    <div class="n-total"><mat-label><strong>Rs: </strong>{{itemsTotal.netTotal}}</mat-label></div>
+  </div>
+  </div>
+
+</div>

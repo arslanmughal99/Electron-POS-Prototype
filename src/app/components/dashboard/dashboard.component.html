@@ -1,0 +1,59 @@
+<div class="main-wrapper">
+  <div class="status-details">
+    <div class="section-1">
+      <mat-label color="primary" class="large-label-font">Mode: 
+        <strong *ngIf="appSettings.staticItems" class="mode-name">Static</strong>
+        <strong *ngIf="!appSettings.staticItems" class="mode-name">Dynamic</strong>
+      </mat-label>
+    </div>
+    <div class="section-2">
+      <mat-label color="primary" class="large-label-font">User: 
+        <strong class="mode-name">{{appSettings.counterUser}}</strong>
+      </mat-label>
+    </div>
+    <div class="section-3">
+      <mat-label color="primary" class="large-label-font">Date: 
+        <strong class="mode-name">{{date | date}}</strong>
+      </mat-label>
+    </div>
+  </div>
+  
+  <mat-divider></mat-divider>
+
+  <div class="charts-section">
+    <div class="main-chart-statistic">
+        <canvas baseChart height="70%"
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+
+  </div>
+  <mat-divider></mat-divider>
+  <div class="bottom-section">
+    <div class="bills-status">
+      <mat-label class="large-label-font">Total Bills (all time): <strong class="mode-name">{{billsCount}}</strong></mat-label>
+      <canvas baseChart
+        [options]="polarAreaChartOptions"
+        [datasets]="polarAreaChartData"
+        [labels]="polarAreaChartLabels"
+        [legend]="polarAreaLegend"
+        [chartType]="polarAreaChartType">
+      </canvas>
+    </div>
+
+    <div class="earning-chart">
+      <mat-label class="large-label-font">Earnings (last working 7 days): </mat-label>
+      <canvas baseChart height="120%"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType">
+      </canvas>
+    </div>
+  </div>
+</div>

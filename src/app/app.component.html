@@ -1,0 +1,10 @@
+<app-toolbar></app-toolbar>
+
+<div class="main-theme-pallet-wrapper" (mouseenter)="onPalletHover('enter')" (mouseleave)="onPalletHover('leave')">
+    <div class="theme-action-area" [class.transform-theme-pallet]="themePaleteClass">
+        <div><button color="none" mat-mini-fab class="theme1-btn-color" (click)="onChangeTheme('lava')"></button></div>
+        <div><button color="none" mat-mini-fab class="theme4-btn-color" (click)="onChangeTheme('black')"></button></div>
+        <div><button color="none" mat-mini-fab class="theme2-btn-color" (click)="onChangeTheme('light-purple')"></button></div>
+        <div><button color="none" mat-mini-fab class="theme3-btn-color" (click)="onChangeTheme('brown')"></button></div>
+    </div>
+</div>

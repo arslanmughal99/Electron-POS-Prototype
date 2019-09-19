@@ -1,0 +1,47 @@
+
+<div class="label-wrapper" *ngIf="previewData">
+  <p class="bold-heading">Client Details</p>
+  <mat-divider class="divider"></mat-divider>
+  <p *ngIf="previewData.clientName">Name : {{previewData.clientName}}</p>
+  <p *ngIf="previewData.clientPhone">Phone : {{previewData.clientPhone}}</p>
+  <p *ngIf="previewData.clientCNIC">CNIC : {{previewData.clientCNIC}}</p>
+  <p *ngIf="previewData.dateOfInvoice">Date : {{previewData.dateOfInvoice | date}}</p>
+
+  <div class="item-section" *ngIf="previewData.itemsPurchased.length > 0">
+    <p class="bold-heading item-details-heading">Items Purchased</p>
+    <mat-divider></mat-divider>
+    <div class="loop-div-fixview">
+      <div class="item-loop">
+        <div class="loop-item"><p>Item</p></div>
+        <div class="loop-item2"><p>Qty</p></div>
+        <div class="loop-item3"><p>Unit</p></div>
+        <div class="loop-item4"><p>Total</p></div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="item-loop" *ngFor="let item of previewData.itemsPurchased; let i = index;">
+        <div class="loop-item"><p>{{item.itemName}}</p></div>
+        <div class="loop-item2"><p>{{item.itemQuantity}}</p></div>
+        <div class="loop-item3"><p>{{item.unitOfMeasure}}</p></div>
+        <div class="loop-item4"><p>{{item.pricePerUnit * item.itemQuantity}}</p></div>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="item-results" *ngIf="itemsTotal">
+      <div class="total-items"><p><strong>Total Items :</strong> {{itemsTotal.totalItems}}</p></div>
+      <div class="total-price"><p><strong>Total Price :</strong> {{itemsTotal.totalPrice}}</p></div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="item-tax-con" *ngIf="itemsTotal">
+      <div><p><strong>Sales Tax:</strong> {{appSettings.salesTaxPercent}}%</p></div>
+      <div><p><strong>Rs: </strong>{{itemsTotal.salesTax}}</p></div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="item-tax-con" *ngIf="itemsTotal">
+      <div><p><strong>Net Total:</strong></p></div>
+      <div><p>Rs: {{itemsTotal.netTotal}}</p></div>
+    </div>
+
+  </div>
+
+</div>

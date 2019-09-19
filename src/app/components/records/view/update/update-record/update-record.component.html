@@ -1,0 +1,102 @@
+<form [formGroup]="updateForm">
+<div class="main-wrapper">
+  <!-- RECIPT ID ON THE TOP CENTER -->
+  <div class="section-1">
+    <div>
+      <mat-label color="primary"><strong>Recipt ID: </strong>{{data.reciptId}}</mat-label>
+    </div>
+    <div class="right-label">
+      <mat-label color="primary"><strong>Counter/User: </strong>{{data.counterUser}}</mat-label>
+    </div>
+  </div>
+
+  <div><mat-divider></mat-divider></div>
+  <!-- CLIENT DETAILS SECTION -->
+  <div class="section-2">
+    
+    <mat-form-field appearance="standard">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Alice" formControlName="clientName">
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dateOfInvoice">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>    
+    
+    <mat-form-field appearance="standard">
+      <mat-label>Phone</mat-label>
+      <input matInput placeholder="0307xxxxxxx" formControlName="clientPhone">
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="standard">
+      <mat-label>CNIC</mat-label>
+      <input matInput placeholder="4240xxxxxxxxxx" formControlName="clientCNIC">
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    </mat-form-field>
+
+    
+    <div>
+      <mat-label><strong>Items Purchased</strong></mat-label>
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+
+  <!-- ITEMS EDDITING SECTION -->
+  <div class="section-3" formArrayName="itemsPurchased">
+    <div class="iter-loop-items" *ngFor="let item of getFromArray.controls; let i = index;" [formGroupName]="i">
+        <mat-form-field appearance="standard">
+            <mat-label>Item Name</mat-label>
+            <input matInput placeholder="Tenis Ball" formControlName="itemName" required>
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        </mat-form-field>
+
+          <mat-form-field appearance="standard" class="short-input-fileds">
+              <!-- <mat-icon matSuffix>category</mat-icon> -->
+              <mat-select formControlName="itemCategory">
+                <mat-option *ngFor="let cat of itemCategories" value={{cat}}>{{cat}}</mat-option>
+              </mat-select>
+              <mat-label>Category</mat-label>
+          </mat-form-field>
+
+          <mat-form-field appearance="standard" class="short-input-fileds">
+              <!-- <mat-icon matSuffix>pie_chart</mat-icon> -->
+              <mat-select formControlName="unitOfMeasure">
+                <mat-option *ngFor="let unit of unitsOfMeasures" value={{unit}}>{{unit}}</mat-option>
+              </mat-select>
+              <mat-label>Unit</mat-label>
+          </mat-form-field> 
+
+          <mat-form-field appearance="standard" class="short-input-fileds">
+              <mat-label>Qty</mat-label>
+              <input matInput type="number" placeholder="4" min="1" formControlName="itemQuantity" required>
+              <!-- <mat-icon matSuffix>layers</mat-icon> -->
+          </mat-form-field>
+
+          <mat-form-field appearance="standard" class="short-input-fileds">
+              <mat-label>price per unit</mat-label>
+              <input matInput type="number" placeholder="100" min="1" formControlName="pricePerUnit" required>
+              <!-- <mat-icon matSuffix>money</mat-icon> -->
+          </mat-form-field>
+
+          <button mat-mini-fab color="primary" (click)="deleteItemField(i)"><mat-icon>delete</mat-icon></button>
+          <div><mat-divider></mat-divider></div>
+    </div>
+
+  </div>
+  <div><mat-divider></mat-divider></div>
+  <div class="action-btns-section">
+    <div>
+      <button mat-mini-fab (click)="addSingleItem()"><mat-icon>add</mat-icon></button>
+    </div>
+    <div class="update-cancel-action">
+      <button mat-raised-button color="primary" [disabled]="!updateForm.valid" (click)="updateRecord()">Update</button>
+      <button mat-raised-button [disabled]="!updateForm.valid" (click)="onCancle()">Cancel</button>
+    </div>
+  </div>
+</div>
+</form>

@@ -1,0 +1,45 @@
+mat-label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-settings-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pmt{
+    margin-top: 10px;
+}
+
+.large-inp-field{
+    width: 100%;
+}
+
+
+.setting-margin{
+    margin-top: 5px;
+}
+
+.small-inp-left{
+    padding-right: 5px;
+    width: 100%;
+}
+
+.small-inp-right{
+    padding-left: 5px;
+    width: 100%;
+}
+
+.smal-inp-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-align{
+    width: 49%;
+}
+
+.left-align{
+    width: 49%;
+}

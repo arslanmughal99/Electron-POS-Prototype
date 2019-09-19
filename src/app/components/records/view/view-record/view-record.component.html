@@ -1,0 +1,130 @@
+<div class="main-wrapper">
+
+  <div class="client-details">
+
+    <div class="client-sub-section">
+      <div class="flex-basis">
+        <mat-label><strong>Bill ID: </strong> {{data.reciptId}}</mat-label>
+      </div>
+      
+      <div class="flex-basis date-of-invoice">
+        <mat-label><strong>Date: </strong> {{data.dateOfInvoice | date}}</mat-label>
+      </div>
+      
+    </div>
+
+    <div class="pmt">
+      <mat-divider></mat-divider>
+    </div>
+    
+    <div class="from-user-counter pmt">
+      <mat-label><strong>From: </strong>{{data.counterUser}}</mat-label>
+    </div>
+
+    <div class="pmt">
+        <mat-divider></mat-divider>
+    </div>
+
+    <div class="client-sec pmt">
+      <div>
+        <mat-label><strong>Name: </strong>{{data.clientName}}</mat-label>
+      </div>
+      <div *ngIf="data.clientPhone">
+        <mat-label><strong>Phone: </strong>{{data.clientPhone}}</mat-label>
+      </div>
+      <div *ngIf="data.clientCNIC">
+        <mat-label><strong>CNIC: </strong>{{data.clientCNIC}}</mat-label>
+      </div>
+    </div>
+
+    <div class="pmt">
+        <mat-divider></mat-divider>
+    </div>
+
+  </div>
+
+
+  <div class="items-detail pmt">
+    <mat-label class="pmt" color="primary"><p><strong>Items Purchased</strong></p></mat-label>
+
+    <mat-form-field class="wide-input-field">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <div class="each-item mat-elevation-z8">
+      
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+            </ng-container>
+          
+            <!-- Category Column -->
+            <ng-container matColumnDef="category">
+              <th mat-header-cell *matHeaderCellDef> Category </th>
+              <td mat-cell *matCellDef="let element"> {{element.itemCategory}} </td>
+            </ng-container>
+          
+            <!-- Quantity Column -->
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let element"> {{element.itemQuantity}} </td>
+            </ng-container>
+          
+            <!-- Unit Column -->
+            <ng-container matColumnDef="unit">
+              <th mat-header-cell *matHeaderCellDef> Unit </th>
+              <td mat-cell *matCellDef="let element"> {{element.unitOfMeasure}} </td>
+            </ng-container>
+
+            <!-- price Column -->
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> {{element.pricePerUnit}} </td>
+            </ng-container>
+
+            <!-- price Column -->
+            <ng-container matColumnDef="itemTotal">
+              <th mat-header-cell *matHeaderCellDef> Total </th>
+              <td mat-cell *matCellDef="let element"> {{element.pricePerUnit * element.itemQuantity}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[4, 5, 10, 25, 100]"></mat-paginator>
+    </div>
+    <mat-divider class="pmt"></mat-divider>
+    <div class="total-footer pmt">
+      <div class="footer-sub-1">
+          <mat-label><strong>Total: </strong></mat-label>
+      </div>
+  
+      <div class="footer-sub-2">
+        <mat-label><strong>Rs: {{ itemsTotal.totalPrice }}</strong></mat-label>
+      </div>
+    </div>
+    <mat-divider class="pmt"></mat-divider>
+    <div class="total-footer pmt">
+      <div class="footer-sub-1">
+          <mat-label><strong>Sales Tax: </strong>{{data.salesTaxPercent}}</mat-label>
+      </div>
+  
+      <div class="footer-sub-2">
+        <mat-label><strong>Rs: {{ itemsTotal.salesTax }}</strong></mat-label>
+      </div>
+    </div>
+    <mat-divider class="pmt"></mat-divider>
+    <div class="total-footer pmt">
+      <div class="footer-sub-1">
+          <mat-label><strong>Net Total: </strong></mat-label>
+      </div>
+  
+      <div class="footer-sub-2">
+        <mat-label><strong>Rs: {{ itemsTotal.netTotal }}</strong></mat-label>
+      </div>
+    </div>
+
+  </div>
+
+</div>
