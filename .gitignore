@@ -12,8 +12,8 @@ appConfigSchema.js
 src/**/*.js
 !src/karma.conf.js
 *.js.map
-runtime/*.js
-runtime/*.js.map
+/runtime/*.js
+/runtime/*.js.map
 
 
 # dependencies
