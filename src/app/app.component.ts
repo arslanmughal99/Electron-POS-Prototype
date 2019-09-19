@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { ElectronService } from './core/services';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageHandlerService } from './services/localstorage/local-storage-handler.service';
+import { ipcRenderer } from 'electron';
+import { MatDialog } from '@angular/material';
+import { UpdatesComponent } from './components/settings/updates/updates/updates.component';
+import { InstallUpdateComponent } from './components/settings/updates/install-update/install-update.component';
 
 
 @Component({
@@ -15,11 +19,24 @@ export class AppComponent {
   constructor(
     public electronService: ElectronService,
     private translate: TranslateService,
-    private _localStorageHandler: LocalStorageHandlerService
+    private _localStorageHandler: LocalStorageHandlerService,
+    private _dailog: MatDialog
   ) {
+    this.checkForUpdate();
     this.translate.setDefaultLang('en');
     document.getElementById('root-app-container').classList.value = this._localStorageHandler.getFromLocalStorage('lastTheme') as string;
 }
+
+
+  checkForUpdate() {
+    ipcRenderer.on('yes-update-app', _ => {
+      this._dailog.open(UpdatesComponent, {width: '400px', disableClose: true});
+    });
+
+    ipcRenderer.on('ready-to-install-update', _ => {
+      this._dailog.open(InstallUpdateComponent, {width: '400px', disableClose: true});
+    });
+  }
 
   onChangeTheme(name: string) {
     if (name === 'lava') {

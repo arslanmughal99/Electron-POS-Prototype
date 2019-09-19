@@ -18,7 +18,7 @@ function generatePdf(bill, filepath) {
     generateInvoiceTable(pdf, bill, config);
     generateFooter(pdf, config);
     pdf.end();
-    pdf.pipe(fs.createWriteStream("" + path.join(filepath + '.pdf')));
+    pdf.pipe(fs.createWriteStream("" + path.join(filepath)));
 }
 function generateHeader(doc, billObj, config) {
     if (config.printLogo && config.companyLogo !== '') {

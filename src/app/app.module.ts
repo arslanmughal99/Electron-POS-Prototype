@@ -69,6 +69,8 @@ import { BackupRestoreComponent } from './components/settings/backup-restore/bac
 import { UiSettingsComponent } from './components/ui-settings/ui-settings/ui-settings.component';
 import { DataTimeComponent } from './components/datetime/data-time/data-time.component';
 import { LicenseDaysComponent } from './components/licensedays/license-days/license-days.component';
+import { UpdatesComponent } from './components/settings/updates/updates/updates.component';
+import { InstallUpdateComponent } from './components/settings/updates/install-update/install-update.component';
 
 
 // AoT requires an exported function for factories
@@ -102,7 +104,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BackupRestoreComponent,
     UiSettingsComponent,
     DataTimeComponent,
-    LicenseDaysComponent
+    LicenseDaysComponent,
+    UpdatesComponent,
+    InstallUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -157,7 +161,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BackupRestoreComponent,
     UiSettingsComponent,
     DataTimeComponent,
-    LicenseDaysComponent
+    LicenseDaysComponent,
+    UpdatesComponent,
+    InstallUpdateComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

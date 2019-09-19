@@ -1,0 +1,13 @@
+<div class="head-icon">
+  <mat-icon color="primary" class="mat-ico">system_update_alt</mat-icon>
+  <h1 mat-dialog-title class="title">Updates Available</h1>
+</div>
+<mat-dialog-content>
+  <div>
+    <mat-label>Newer version of app is found, Update now to enjoy latest features</mat-label>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button [mat-dialog-close]="true"><mat-icon>close</mat-icon> Latter</button>
+  <button mat-raised-button color="primary" (click)="onUpdateYes()"><mat-icon>cloud_download</mat-icon> Download</button>
+</mat-dialog-actions>

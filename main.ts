@@ -5,6 +5,7 @@ import { app, BrowserWindow, screen } from 'electron';
 import { dbHandler, compactDB } from './runtime/databasehandler';
 import { fullScreenDetect } from './runtime/fullscreenHandler';
 import { callLicenseManager } from './runtime/license-handler';
+import { updateSchedular } from './runtime/updator';
 import { getPdfCommandStatic } from './runtime/pdf-generator-staic';
 import { getPdfCommandDynamic } from './runtime/pdf-generator-dynamic';
 import { createDBBackup } from './runtime/database-backup';
@@ -38,7 +39,7 @@ function createWindow() {
     frame: false,
     // transparent: true,
     webPreferences: {
-      devTools: false,
+      // devTools: false,
       nodeIntegration: true,
     },
   });
@@ -116,7 +117,9 @@ try {
       dbHandler();
       getPdfCommandDynamic();    // pdf generator for dynamic mode
     }
-
+    if (!serve) {
+      updateSchedular(win);
+    }
   });
 
 
