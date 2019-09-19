@@ -12,9 +12,25 @@ appConfigSchema.js
 src/**/*.js
 !src/karma.conf.js
 *.js.map
-/runtime/*.js
-/runtime/*.js.map
 
+database-backup.js
+database-backup.js.map
+fullscreenHander.js
+fullscreenHander.js.map
+databasehandler.js
+databasehandler.js.map
+license-handler.js
+license-handler.js.map
+pdf-generator-dynamic.js
+pdf-generator-dynamic.js.map
+pdf-generator-staic.js
+pdf-generator-staic.js.map
+static-items-database.js
+static-items-database.js.map
+staticItemsDBHandler.js
+staticItemsDBHandler.js.map
+updator.js
+updator.js.map
 
 # dependencies
 /node_modules
