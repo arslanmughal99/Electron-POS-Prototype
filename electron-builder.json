@@ -1,5 +1,9 @@
 {
   "productName": "Pulsar",
+  "appId": "com.possystem.pulsar",
+  "publish": {
+    "provider": "github"
+  },
   "directories": {
     "output": "release/"
   },

@@ -29,7 +29,7 @@ export class AppComponent {
 
 
   checkForUpdate() {
-    ipcRenderer.on('yes-update-app', _ => {
+    ipcRenderer.on('app-update-avail', _ => {
       this._dailog.open(UpdatesComponent, {width: '400px', disableClose: true});
     });
 

@@ -1,6 +1,6 @@
 {
   "name": "pulsar",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "POS (Point Of Sell) application",
   "homepage": "https://github.com/arslanmughal5566/Pulsar",
   "author": {
@@ -38,7 +38,7 @@
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
     "electron:linux": "npm run build:prod && electron-builder build --linux",
-    "electron:windows": "npm run build:prod && electron-builder build --windows",
+    "electron:windows": "npm run build:prod && electron-builder build --windows --publish always",
     "electron:mac": "npm run build:prod && electron-builder build --mac",
     "test": "npm run postinstall:web && ng test",
     "e2e": "npm run build:prod && mocha --timeout 300000 --require ts-node/register e2e/**/*.spec.ts",
@@ -101,6 +101,7 @@
     "@types/nedb": "^1.8.8",
     "chart.js": "^2.8.0",
     "copy-text-to-clipboard": "^2.1.0",
+    "electron-log": "^3.0.8",
     "electron-store": "^4.0.0",
     "electron-updater": "^4.1.2",
     "hammerjs": "^2.0.8",

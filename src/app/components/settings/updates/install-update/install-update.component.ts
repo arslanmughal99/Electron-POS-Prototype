@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ipcRenderer } from 'electron';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-install-update',
@@ -8,13 +9,16 @@ import { ipcRenderer } from 'electron';
 })
 export class InstallUpdateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<undefined>
+  ) { }
 
   ngOnInit() {
   }
 
   onDoupdate() {
     ipcRenderer.send('yes-do-update');
+    this.dialogRef.close();
   }
 
 }
