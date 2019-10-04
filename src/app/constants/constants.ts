@@ -13,5 +13,5 @@ export const constants = {
     SALES_TAX: 0,
     BACKUP_FILE_EXT: '.rcdb',
     BACKUP_FILE_EXT_RAW: 'rcdb',
-    APP_NAME: 'Quazar'
+    APP_NAME: 'Pulsar'
 };
