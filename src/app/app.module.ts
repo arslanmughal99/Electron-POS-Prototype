@@ -21,7 +21,7 @@ import {
   MatTabsModule,
   MatOptionModule,
   MatSelectModule,
-  MatGridListModule, 
+  MatGridListModule,
   MatDatepickerModule,
   MatNativeDateModule,
   MatSlideToggleModule,

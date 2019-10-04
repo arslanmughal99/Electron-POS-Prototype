@@ -8,6 +8,6 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-raised-button [mat-dialog-close]="true"><mat-icon>close</mat-icon> Latter</button>
+    <button mat-raised-button (click)="closeDailog()"><mat-icon>close</mat-icon> Latter</button>
     <button mat-raised-button color="primary" (click)="onDoupdate()"><mat-icon>autorenew</mat-icon> Install</button>
   </mat-dialog-actions>

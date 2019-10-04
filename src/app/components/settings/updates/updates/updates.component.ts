@@ -10,14 +10,18 @@ import { MatDialogRef } from '@angular/material';
 export class UpdatesComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<undefined>
+    public dialogRef: MatDialogRef<UpdatesComponent>
   ) { }
 
   ngOnInit() {
   }
 
+  closeDailog() {
+    this.dialogRef.close();
+  }
+
   onUpdateYes() {
     ipcRenderer.send('yes-update-app', true);
-    this.dialogRef.close();
-    }
+    this.closeDailog();
+  }
 }

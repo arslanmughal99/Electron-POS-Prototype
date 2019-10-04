@@ -29,12 +29,20 @@ export class AppComponent {
 
 
   checkForUpdate() {
-    ipcRenderer.on('app-update-avail', _ => {
-      this._dailog.open(UpdatesComponent, {width: '400px', disableClose: true});
+    ipcRenderer.once('app-update-avail', _ => {
+      const dilaogRef = this._dailog.open(UpdatesComponent, {width: '400px', disableClose: true});
+      dilaogRef.beforeClosed().subscribe(_ => {
+        dilaogRef.close();
+        console.log('UPDATE DIALOG CLOSED : ');
+      });
     });
 
-    ipcRenderer.on('ready-to-install-update', _ => {
-      this._dailog.open(InstallUpdateComponent, {width: '400px', disableClose: true});
+    ipcRenderer.once('ready-to-install-update', _ => {
+      const dilaogRef = this._dailog.open(InstallUpdateComponent, {width: '400px', disableClose: true});
+      dilaogRef.beforeClosed().subscribe(_ => {
+        dilaogRef.close();
+        console.log('INSTALL DIALOG CLOSED : ');
+      });
     });
   }
 
