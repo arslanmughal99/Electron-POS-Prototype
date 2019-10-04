@@ -9,7 +9,7 @@ export const constants = {
     CUS_RECIPT_MSG: '',
     STATIC_ITEMS: true,
     COUNTER_USER: null,
-    NOTIFICATION_TIME: 3,
+    NOTIFICATION_TIME: 4,
     SALES_TAX: 0,
     BACKUP_FILE_EXT: '.rcdb',
     BACKUP_FILE_EXT_RAW: 'rcdb',
