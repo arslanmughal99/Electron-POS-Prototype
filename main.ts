@@ -4,7 +4,6 @@ import { schema } from './appConfigSchema';
 import { app, BrowserWindow, screen } from 'electron';
 import { dbHandler, compactDB } from './runtime/databasehandler';
 import { fullScreenDetect } from './runtime/fullscreenHandler';
-import { callLicenseManager } from './runtime/license-handler';
 import { updateSchedular } from './runtime/updator';
 import { getPdfCommandStatic } from './runtime/pdf-generator-staic';
 import { getPdfCommandDynamic } from './runtime/pdf-generator-dynamic';
@@ -15,7 +14,6 @@ import * as url from 'url';
 import { AppSettings } from './src/app/interfaces/appSettings-ineterface';
 
 
-// const appSettings = JSON.parse(localStorage.getItem('appSettings'));
 let win, serve;
 const electronStore = new Store({schema: schema, cwd: path.join(app.getPath('appData'), '.cusResSetApp')});
 const appSettings: AppSettings = electronStore.get('appSettings');
@@ -101,8 +99,6 @@ try {
   // Some APIs can only be used after this event occurs.
   app.on('ready', () => {
     createWindow();
-    // LICENSE HANDLER
-    callLicenseManager();
     fullScreenDetect(win);
 
     // BACKUP AND RESTORE SERVICE
