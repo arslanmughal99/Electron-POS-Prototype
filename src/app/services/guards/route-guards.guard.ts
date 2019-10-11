@@ -3,8 +3,8 @@ import { CanActivate } from '@angular/router';
 import * as Store from 'electron-store';
 import { StatusSender } from '../../interfaces/sender-status-interface';
 import { MatDialog } from '@angular/material';
-import { UiSettingsComponent } from '../../components/ui-settings/ui-settings/ui-settings.component';
-import { DataTimeComponent } from '../../components/datetime/data-time/data-time.component';
+import { UiSettingsComponent } from '../../components/shared/alerts/ui-settings/ui-settings/ui-settings.component';
+import { DataTimeComponent } from '../../components/shared/alerts/datetime/data-time/data-time.component';
 
 
 

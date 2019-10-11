@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RegularClientComponent } from './components/regular-client/regular-client.component';
+import { DashboardComponent } from './components/shared/dashboard/dashboard.component';
+import { RegularClientComponent } from './components/dynamic-mode/regular-client/regular-client.component';
 import { SettingsComponent } from './components/settings/settings/settings.component';
-import { StaticItemsComponent } from './components/static-items/static-items/static-items.component';
-import { StaticRecordsComponent } from './components/static-items/static-records/static-records/static-records.component';
-import { RecordsComponent } from './components/records/records/records.component';
+import { StaticItemsComponent } from './components/static-mode/static-form/static-items.component';
+import { StaticRecordsComponent } from './components/static-mode/static-records/static-records/static-records.component';
+import { RecordsComponent } from './components/dynamic-mode/records/records/records.component';
 import { CategoryComponent } from './components/settings/category/category.component';
 import { UnitsComponent } from './components/settings/units/units.component';
 import { ItemsManagerComponent } from './components/settings/settings/items/items-manager/items-manager.component';

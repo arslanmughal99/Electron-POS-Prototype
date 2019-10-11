@@ -1,11 +1,12 @@
+// tslint:disable: no-shadowed-variable
 import { Component } from '@angular/core';
 import { ElectronService } from './core/services';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageHandlerService } from './services/localstorage/local-storage-handler.service';
 import { ipcRenderer } from 'electron';
 import { MatDialog } from '@angular/material';
-import { UpdatesComponent } from './components/settings/updates/updates/updates.component';
-import { InstallUpdateComponent } from './components/settings/updates/install-update/install-update.component';
+import { UpdatesComponent } from './components/shared/alerts/updates/updates/updates.component';
+import { InstallUpdateComponent } from './components/shared/alerts/updates/install-update/install-update.component';
 
 
 @Component({

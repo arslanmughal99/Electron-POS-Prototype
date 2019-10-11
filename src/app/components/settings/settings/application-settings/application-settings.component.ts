@@ -5,7 +5,7 @@ import { constants } from '../../../../constants/constants';
 import { AppSettings } from '../../../../interfaces/appSettings-ineterface';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { remote } from 'electron';
-import { BackupRestoreComponent } from '../../backup-restore/backup-restore/backup-restore.component';
+import { BackupRestoreComponent } from '../backup-restore/backup-restore/backup-restore.component';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class ApplicationSettingsComponent implements OnInit {
 
     this.appSettingsForm = this._fb.group({
       companyName: [this.appSettings.companyName || constants.COMPANY_NAME],
-      companyContact: [this.appSettings.companyContact|| constants.COMPANY_CONTACT],
+      companyContact: [this.appSettings.companyContact || constants.COMPANY_CONTACT],
       companyAddress: [this.appSettings.companyAddress || constants.COMPANY_ADDRESS],
       resetFormOnSave: [this.appSettings.resetFormOnSave === false ? false : constants.RESET_FROM_ON_SAVE],
       ccustomReciptMessage: [this.appSettings.ccustomReciptMessage],
