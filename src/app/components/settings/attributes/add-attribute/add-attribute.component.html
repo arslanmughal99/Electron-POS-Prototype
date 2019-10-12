@@ -1,0 +1,8 @@
+<div class="main-wrapper">
+  <div class="inp-filed">
+    <mat-form-field>
+      <input matInput [placeholder]="typePlaceHolder" #attrNameValue>
+    </mat-form-field>
+  </div>
+  <div class="saved-btn"><button mat-raised-button color="primary" (click)="setAttribute(attrNameValue.value)">Save</button></div>
+</div>

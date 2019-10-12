@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LocalStorageHandlerService } from '../../../services/localstorage/local-storage-handler.service';
-import { Category } from '../../../interfaces/category-interface';
+import { LocalStorageHandlerService } from '../../../../services/localstorage/local-storage-handler.service';
+import { Category } from '../../../../interfaces/category-interface';
 import { MatTableDataSource } from '@angular/material';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
@@ -70,14 +70,6 @@ export class UnitsComponent implements OnInit {
     });
     return data;
   }
-
-  setUnit(unitName: string) {
-    const units = this.localStorageService.getFromLocalStorage('units') as string[];
-    units.push(unitName);
-    this.localStorageService.setToLocalStorage('units', units);
-    this.ngOnInit();
-  }
-
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

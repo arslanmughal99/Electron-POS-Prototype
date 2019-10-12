@@ -6,10 +6,9 @@ import { SettingsComponent } from './components/settings/settings/settings.compo
 import { StaticItemsComponent } from './components/static-mode/static-form/static-items.component';
 import { StaticRecordsComponent } from './components/static-mode/static-records/static-records/static-records.component';
 import { RecordsComponent } from './components/dynamic-mode/records/records/records.component';
-import { CategoryComponent } from './components/settings/category/category.component';
-import { UnitsComponent } from './components/settings/units/units.component';
 import { ItemsManagerComponent } from './components/settings/settings/items/items-manager/items-manager.component';
 import { RouteGuardsGuard } from './services/guards/route-guards.guard';
+import { AttributesComponent } from './components/settings/attributes/attributes/attributes.component';
 
 
 const routes: Routes = [
@@ -51,20 +50,14 @@ const routes: Routes = [
     canActivate: [RouteGuardsGuard]
   },
   {
-    path: 'categories',
-    component: CategoryComponent,
-    pathMatch: 'full',
-    canActivate: [RouteGuardsGuard]
-  },
-  {
-    path: 'units',
-    component: UnitsComponent,
-    pathMatch: 'full',
-    canActivate: [RouteGuardsGuard]
-  },
-  {
     path: 'items-manager',
     component: ItemsManagerComponent,
+    pathMatch: 'full',
+    canActivate: [RouteGuardsGuard]
+  },
+  {
+    path: 'attributes',
+    component: AttributesComponent,
     pathMatch: 'full',
     canActivate: [RouteGuardsGuard]
   },

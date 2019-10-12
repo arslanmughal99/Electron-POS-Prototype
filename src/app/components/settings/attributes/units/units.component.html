@@ -1,29 +1,29 @@
+<!-- <div class="cat-fiels">
+      <div>
+      <div class="heading">
+        <p>Create new</p>
+      </div>
+      <div>
+        <form>
+          <mat-form-field class="form-field">
+            <mat-label>Unit Name</mat-label>
+            <input ngModel name="unitName" #unitName="ngModel" matInput placeholder="Kilo, Meter etc..." required>
+            <mat-icon matSuffix>lens</mat-icon>
+          </mat-form-field>
+          <button mat-raised-button (click)="setUnit(unitName.value); unitName.reset();"
+          [disabled]="!unitName.valid">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+   -->
+
+
 <div class="main-wrapper">
-
-  <div class="cat-fiels">
-    <div>
-    <div class="heading">
-      <p>Create new</p>
-    </div>
-    <div>
-      <form>
-        <mat-form-field class="form-field">
-          <mat-label>Category Name</mat-label>
-          <input ngModel name="categoryName" #categoryName="ngModel" matInput placeholder="Category Name" required>
-          <mat-icon matSuffix>category</mat-icon>
-        </mat-form-field>
-        <button mat-raised-button (click)="setCategory(categoryName.value); categoryName.reset();"
-          [disabled]="!categoryName.valid">Save</button>
-      </form>
-    </div>
+  <div class="no-attr-found" *ngIf="getAllUnits.length === 0">
+    <mat-label>Click <mat-icon>add</mat-icon> to add new category</mat-label>
   </div>
-  </div>
-
-
-
-
-  <div class="table-section">
-    <div>
+  <div class="table-section" *ngIf="getAllUnits.length > 0">
     <mat-form-field class="wide-input-field">
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
@@ -41,7 +41,7 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
           <td mat-cell *matCellDef="let row">
-            <button mat-mini-fab color="warn" (click)="onDeleteCategory(row.name)">
+            <button mat-mini-fab color="warn" (click)="onDeleteUnit(row.name)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
@@ -52,8 +52,7 @@
         </tr>
       </table>
 
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[10, 25, 50, 75, 100]"></mat-paginator>
     </div>
-  </div>
   </div>
 </div>

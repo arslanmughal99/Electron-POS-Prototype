@@ -46,13 +46,13 @@ import { DashboardComponent } from './components/shared/dashboard/dashboard.comp
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 import { RegularClientComponent } from './components/dynamic-mode/regular-client/regular-client.component';
 import { InputFormComponent } from './components/dynamic-mode/regular-client/input-form/input-form.component';
-import { CategoryComponent } from './components/settings/category/category.component';
+import { CategoryComponent } from './components/settings/attributes/category/category.component';
 import { SettingsComponent } from './components/settings/settings/settings.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ReciptViewComponent } from './components/dynamic-mode/recipt-view/recipt-view.component';
-import { UnitsComponent } from './components/settings/units/units.component';
+import { UnitsComponent } from './components/settings/attributes/units/units.component';
 import { PrinterConfigComponent } from './components/settings/settings/printer-config/printer-config.component';
 import { ApplicationSettingsComponent } from './components/settings/settings/application-settings/application-settings.component';
 import { RecordsComponent } from './components/dynamic-mode/records/records/records.component';
@@ -71,6 +71,8 @@ import { DataTimeComponent } from './components/shared/alerts/datetime/data-time
 import { LicenseDaysComponent } from './components/shared/alerts/license/licensedays/license-days/license-days.component';
 import { UpdatesComponent } from './components/shared/alerts/updates/updates/updates.component';
 import { InstallUpdateComponent } from './components/shared/alerts/updates/install-update/install-update.component';
+import { AttributesComponent } from './components/settings/attributes/attributes/attributes.component';
+import { AddAttributeComponent } from './components/settings/attributes/add-attribute/add-attribute.component';
 
 
 // AoT requires an exported function for factories
@@ -106,7 +108,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     DataTimeComponent,
     LicenseDaysComponent,
     UpdatesComponent,
-    InstallUpdateComponent
+    InstallUpdateComponent,
+    AttributesComponent,
+    AddAttributeComponent
   ],
   imports: [
     BrowserModule,
@@ -154,6 +158,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   // tslint:disable-next-line: max-line-length
   entryComponents: [
+    AddAttributeComponent,
     ViewRecordComponent,
     UpdateRecordComponent,
     UpdateItemDialogComponent,

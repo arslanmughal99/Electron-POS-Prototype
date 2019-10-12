@@ -1,0 +1,24 @@
+table{
+  width: 100%;
+}
+
+.table-section{
+  width: 100%;
+}
+
+.wide-input-field{
+  width: 100%;
+}
+
+.table-content{
+  width: 100%;
+  max-height: calc(100vh - 190px);
+  overflow: auto;
+}
+
+.no-attr-found{
+  text-align: center;
+  margin-top: 50%;
+  color: rgb(153, 153, 153);
+  font-size: 130%;
+}

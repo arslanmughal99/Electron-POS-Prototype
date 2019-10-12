@@ -1,0 +1,22 @@
+<div class="main-wrapper">
+  <div class="units-section">
+    <mat-card class="mat-elevation-z5 full-height">
+      <button mat-mini-fab class="add-btn" color="primary" (click)="addAttribute('categories')"><mat-icon>add</mat-icon></button>
+      <div class="main-icon-heading">
+        <div><mat-icon class="icon-margin">category</mat-icon></div>
+        <div><mat-label>&nbsp;Categories</mat-label></div>
+      </div>
+      <app-category></app-category>
+    </mat-card>
+  </div>
+  <div class="category-section">
+    <mat-card class="mat-elevation-z5 full-height">
+      <button mat-mini-fab class="add-btn" color="primary" (click)="addAttribute('units')"><mat-icon>add</mat-icon></button>
+      <div class="main-icon-heading">
+        <div><mat-icon class="icon-margin">casino</mat-icon></div>
+        <div><mat-label>&nbsp;Units</mat-label></div>
+      </div>
+      <app-units></app-units>
+    </mat-card>
+  </div>
+</div>

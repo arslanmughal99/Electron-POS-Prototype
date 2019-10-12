@@ -1,0 +1,27 @@
+.main-wrapper{
+  padding: 1%;
+  display: flex;
+  justify-content: space-evenly;
+  height: calc(100vh - 80px - 3%);
+}
+
+.main-wrapper>div{
+  width: 45%;
+}
+
+.full-height{
+  height: 100%;
+}
+
+.add-btn{
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  z-index: 100;
+}
+
+.main-icon-heading{
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+}

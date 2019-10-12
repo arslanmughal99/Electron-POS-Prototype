@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { LocalStorageHandlerService } from '../../../services/localstorage/local-storage-handler.service';
-import { Category } from './../../../interfaces/category-interface';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { LocalStorageHandlerService } from '../../../../services/localstorage/local-storage-handler.service';
+import { Category } from '../../../../interfaces/category-interface';
 import { MatTableDataSource } from '@angular/material';
 import * as _ from 'lodash';
 import {MatSort} from '@angular/material/sort';
@@ -18,9 +18,9 @@ export class CategoryComponent implements OnInit {
 
   constructor(private localStorageService: LocalStorageHandlerService) { }
 
-  @ViewChild(MatPaginator, {static: true})
+  @ViewChild(MatPaginator, {static: false})
   paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true})
+  @ViewChild(MatSort, {static: false})
   sort: MatSort;
 
   get getAllCategories(): string[] {
@@ -70,14 +70,6 @@ export class CategoryComponent implements OnInit {
     });
     return data;
   }
-
-  setCategory(categoryName: string) {
-    const cats: string[] = this.localStorageService.getFromLocalStorage('categories') as string[];
-    cats.push(categoryName);
-    this.localStorageService.setToLocalStorage('categories', cats);
-    this.ngOnInit();
-  }
-
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
