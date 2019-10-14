@@ -27,10 +27,10 @@
            </button>
         </mat-nav-list>
         <mat-nav-list *ngIf="staticItems">
-          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('static-items')" color="primary"><mat-icon>filter_none</mat-icon> INVOICE </button>
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('static-items')" color="primary"><mat-icon>receipt</mat-icon> INVOICE </button>
         </mat-nav-list>
         <mat-nav-list *ngIf="staticItems">
-          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('static-bills')" color="primary"><mat-icon>receipt</mat-icon> RECORDS </button>
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('static-bills')" color="primary"><mat-icon>view_list</mat-icon> RECORDS </button>
         </mat-nav-list>
         <mat-nav-list *ngIf="!staticItems">
           <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('regular-bills')" color="primary"><mat-icon>receipt</mat-icon> RECORDS </button>
@@ -39,7 +39,7 @@
           <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('attributes')" color="primary"><mat-icon>square_foot</mat-icon> ATTRIBUTES </button>
         </mat-nav-list>
         <mat-nav-list *ngIf="staticItems">
-          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('items-manager')" color="primary"><mat-icon>change_history</mat-icon> ITEMS </button>
+          <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('items-manager')" color="primary"><mat-icon>shopping_cart</mat-icon> INVENTORY </button>
         </mat-nav-list>
         <mat-nav-list>
           <button mat-raised-button class="sidenav-button" (click)="onNavigateTo('settings')" color="primary"><mat-icon>settings</mat-icon> SETTINGS </button>

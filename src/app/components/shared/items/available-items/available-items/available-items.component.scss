@@ -1,0 +1,52 @@
+.main-wrapper{
+  padding: 1%;
+  height: calc(100vh - 90px - 1%);
+}
+
+table {
+  width: 100%;
+  height: auto;
+}
+
+.table-content{
+  width: 100%;
+  max-height: calc(100vh - 190px);
+  overflow: auto;
+}
+
+.wide-input-field{
+  width: 100%;
+}
+
+.action-btn-2{
+  margin-left: 5px;
+}
+
+.no-item-found-msg{
+  text-align: center;
+  font-size: 120%;
+  color: rgb(170, 170, 170);
+  margin-top: 20%;
+}
+
+.inner-card-section{
+
+}
+
+mat-card{
+  height: 100%;
+}
+
+.main-icon-heading{
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+}
+
+
+.floating-add-item-button{
+  z-index: 100;
+  position: absolute;
+  top: 10px;
+  right: 16px;
+}

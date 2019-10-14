@@ -1,0 +1,63 @@
+<div class="main-wrapper">
+  <mat-card>
+    <div class="main-icon-heading">
+      <div>
+        <mat-icon>view_list</mat-icon>
+      </div>
+      <div>
+        <mat-label>&nbsp; Available Items</mat-label>
+      </div>
+    </div>
+    <button mat-mini-fab color="primary" class="floating-add-item-button" (click)="onAddItem()"><mat-icon>add</mat-icon></button>
+    <div class="no-item-found-msg"  *ngIf="!itemStatus"><mat-label>Click <mat-icon>add</mat-icon> to add new item.</mat-label></div>
+    <div class="inner-card-section" *ngIf="itemStatus">
+
+      <mat-form-field class="wide-input-field">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search item here">
+      </mat-form-field>
+
+      <div class="mat-elevation-z8 table-content">
+
+        <table mat-table [dataSource]="dataSource" matSort #table>
+
+          <!-- ID Column -->
+          <ng-container matColumnDef="itemName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Item name </th>
+            <td mat-cell *matCellDef="let row"> {{row.itemName}} </td>
+          </ng-container>
+
+          <!-- Progress Column -->
+          <ng-container matColumnDef="itemPrice">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+            <td mat-cell *matCellDef="let row"> {{row.itemPrice}}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="itemDiscount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Discount </th>
+            <td mat-cell *matCellDef="let row"> {{row.itemDiscount}} </td>
+          </ng-container>
+
+          <!-- Color Column -->
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td mat-cell *matCellDef="let row">
+              <button mat-mini-fab class="action-btn-2" (click)="onEditItem(row._id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-mini-fab color="warn" class="action-btn-2" (click)="onDeleteItem(row._id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+          </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+      </div>
+    </div>
+  </mat-card>
+</div>

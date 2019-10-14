@@ -46,22 +46,20 @@ import { DashboardComponent } from './components/shared/dashboard/dashboard.comp
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 import { RegularClientComponent } from './components/dynamic-mode/regular-client/regular-client.component';
 import { InputFormComponent } from './components/dynamic-mode/regular-client/input-form/input-form.component';
-import { CategoryComponent } from './components/settings/attributes/category/category.component';
+import { CategoryComponent } from './components/shared/attributes/category/category.component';
 import { SettingsComponent } from './components/settings/settings/settings.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ReciptViewComponent } from './components/dynamic-mode/recipt-view/recipt-view.component';
-import { UnitsComponent } from './components/settings/attributes/units/units.component';
+import { UnitsComponent } from './components/shared/attributes/units/units.component';
 import { PrinterConfigComponent } from './components/settings/settings/printer-config/printer-config.component';
 import { ApplicationSettingsComponent } from './components/settings/settings/application-settings/application-settings.component';
 import { RecordsComponent } from './components/dynamic-mode/records/records/records.component';
 import { ViewRecordComponent } from './components/dynamic-mode/records/view/view-record/view-record.component';
 import { UpdateRecordComponent } from './components/dynamic-mode/records/view/update/update-record/update-record.component';
 import { StaticItemsComponent } from './components/static-mode/static-form/static-items.component';
-import { ItemsManagerComponent } from './components/settings/settings/items/items-manager/items-manager.component';
-import { AvailableItemsComponent } from './components/settings/settings/items/available-items/available-items/available-items.component';
-import { UpdateItemDialogComponent } from './components/settings/settings/items/available-items/update/update-item-dialog/update-item-dialog.component';
+import { AvailableItemsComponent } from './components/shared/items/available-items/available-items/available-items.component';
 import { ReciptPreviewComponent } from './components/static-mode/recipt-preview/recipt-preview.component';
 import { StaticRecordsComponent } from './components/static-mode/static-records/static-records/static-records.component';
 import { ViewDialogComponent } from './components/static-mode/static-records/view-dialog/view-dialog/view-dialog.component';
@@ -71,8 +69,9 @@ import { DataTimeComponent } from './components/shared/alerts/datetime/data-time
 import { LicenseDaysComponent } from './components/shared/alerts/license/licensedays/license-days/license-days.component';
 import { UpdatesComponent } from './components/shared/alerts/updates/updates/updates.component';
 import { InstallUpdateComponent } from './components/shared/alerts/updates/install-update/install-update.component';
-import { AttributesComponent } from './components/settings/attributes/attributes/attributes.component';
-import { AddAttributeComponent } from './components/settings/attributes/add-attribute/add-attribute.component';
+import { AttributesComponent } from './components/shared/attributes/attributes/attributes.component';
+import { AddAttributeComponent } from './components/shared/attributes/add-attribute/add-attribute.component';
+import { ItemFormComponent } from './components/shared/items/available-items/item-form/item-form.component';
 
 
 // AoT requires an exported function for factories
@@ -97,9 +96,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ViewRecordComponent,
     UpdateRecordComponent,
     StaticItemsComponent,
-    ItemsManagerComponent,
     AvailableItemsComponent,
-    UpdateItemDialogComponent,
     ReciptPreviewComponent,
     StaticRecordsComponent,
     ViewDialogComponent,
@@ -110,7 +107,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UpdatesComponent,
     InstallUpdateComponent,
     AttributesComponent,
-    AddAttributeComponent
+    AddAttributeComponent,
+    ItemFormComponent
   ],
   imports: [
     BrowserModule,
@@ -161,14 +159,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddAttributeComponent,
     ViewRecordComponent,
     UpdateRecordComponent,
-    UpdateItemDialogComponent,
     ViewDialogComponent,
     BackupRestoreComponent,
     UiSettingsComponent,
     DataTimeComponent,
     LicenseDaysComponent,
     UpdatesComponent,
-    InstallUpdateComponent
+    InstallUpdateComponent,
+    ItemFormComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

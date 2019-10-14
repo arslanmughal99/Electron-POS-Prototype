@@ -1,0 +1,58 @@
+mat-label{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.recomended-color{
+  color: rgb(255, 58, 84);
+}
+
+.main-wrapper>div{
+  flex-basis: 47%;
+}
+
+.item-name{
+  width: 98%;
+  padding: 1%;
+}
+
+.half-width-fields{
+  width: 48%;
+  padding: 1%;
+}
+
+.item-img{
+  height: auto;
+  max-height: 220px;
+  width: 100%;
+}
+
+.img-container{
+  overflow: hidden;
+  height: 200px;
+}
+
+.final-section{
+  display: flex;
+  justify-content: space-between;
+}
+
+.img-container{
+  width: 50%;
+}
+
+.action-btns{
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.action-btns button{
+  width: 100%;
+}
+
+.main-heading{
+  display: flex;
+  align-items: center;
+}
+

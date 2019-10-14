@@ -1,8 +1,25 @@
-<div class="main-wrapper">
+<div class="main-heading" *ngIf="actionType === 'NEW_ITEM'">
+  <div>
+    <mat-icon>post_add</mat-icon>
+  </div>
+  <div>
+    <mat-label>&nbsp; New item</mat-label>
+  </div>
+</div>
 
+<div class="main-heading" *ngIf="actionType === 'UPDATE_ITEM'">
+  <div>
+    <mat-icon>autorenew</mat-icon>
+  </div>
+  <div>
+    <mat-label>&nbsp; Update item</mat-label>
+  </div>
+</div>
+
+
+<div class="main-wrapper">
   <div class="form-components-wrapper">
-    <form [formGroup]="itemUpdateForm">
-    
+    <form [formGroup]="itemForm">
       <mat-form-field appearance="standard" class="item-name">
         <mat-label>Item Name</mat-label>
         <input matInput placeholder="Zinger Burger etc ..." formControlName="itemName">
@@ -14,7 +31,7 @@
           <input type="number" matInput placeholder="120" formControlName="itemPrice">
           <mat-icon matSuffix>attach_money</mat-icon>
       </mat-form-field>
-      
+
       <mat-form-field appearance="standard" class="half-width-fields">
           <mat-label>Discount</mat-label>
           <input type="number" matInput placeholder="20" formControlName="itemDiscount">
@@ -34,21 +51,21 @@
             <mat-option *ngFor="let unit of units" value={{unit}}>{{unit}}</mat-option>
           </mat-select>
       </mat-form-field>
-      
+
       <div class="final-section">
         <div class="img-container">
+          <mat-label color="primary" class="recomended-color">Recomended Size 300px x 220px</mat-label>
           <img [src]="itemImage" class="item-img">
         </div>
         <div class="action-btns">
           <button mat-raised-button (click)="fileInput.click()"><mat-icon>add_photo_alternate</mat-icon> Select Image</button>
           <input hidden (change)="onImageSelected($event)" #fileInput type="file" id="file">
-          <button mat-raised-button (click)="onImageReset()"><mat-icon>replay</mat-icon> Remove Image</button>
+          <button mat-raised-button (click)="onResetImage()"><mat-icon>replay</mat-icon> Remove Image</button>
           <button mat-raised-button (click)="onItemReset()"><mat-icon>refresh</mat-icon> Reset Item</button>
-          <button mat-raised-button color="primary" [disabled]="!itemUpdateForm.valid" (click)="onUpdateItem()"><mat-icon>save</mat-icon> Save Item</button>
+          <button mat-raised-button color="primary" [disabled]="!itemForm.valid" (click)="saveOrUpdate()" *ngIf="actionType === 'NEW_ITEM'"><mat-icon>save</mat-icon> Save Item</button>
+          <button mat-raised-button color="primary" [disabled]="!itemForm.valid" (click)="saveOrUpdate()" *ngIf="actionType === 'UPDATE_ITEM'"><mat-icon>save</mat-icon> Update Item</button>
         </div>
       </div>
-
     </form>
   </div>
-
 </div>

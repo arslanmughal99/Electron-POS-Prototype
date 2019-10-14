@@ -34,3 +34,5 @@ export class AttributesComponent implements OnInit {
   }
 
 }
+
+// TODO: Refactor categories and units componet as single component

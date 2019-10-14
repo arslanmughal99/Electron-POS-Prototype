@@ -7,8 +7,13 @@
 }
 
 .table-content{
-    max-height: calc(100vh - 150px);
-    overflow: auto;
+  height: calc(100vh - 200px);
+  max-height: calc(100vh - 200px);
+  overflow: auto;
+}
+
+mat-card{
+  height: 98%;
 }
 
 table{
@@ -21,4 +26,9 @@ table{
 
 .delete-record-btn{
     margin-left: 30px;
+}
+
+.main-card-headding{
+  display: flex;
+  align-items: center;
 }

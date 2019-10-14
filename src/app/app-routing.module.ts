@@ -6,9 +6,9 @@ import { SettingsComponent } from './components/settings/settings/settings.compo
 import { StaticItemsComponent } from './components/static-mode/static-form/static-items.component';
 import { StaticRecordsComponent } from './components/static-mode/static-records/static-records/static-records.component';
 import { RecordsComponent } from './components/dynamic-mode/records/records/records.component';
-import { ItemsManagerComponent } from './components/settings/settings/items/items-manager/items-manager.component';
 import { RouteGuardsGuard } from './services/guards/route-guards.guard';
-import { AttributesComponent } from './components/settings/attributes/attributes/attributes.component';
+import { AttributesComponent } from './components/shared/attributes/attributes/attributes.component';
+import { AvailableItemsComponent } from './components/shared/items/available-items/available-items/available-items.component';
 
 
 const routes: Routes = [
@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'items-manager',
-    component: ItemsManagerComponent,
+    component: AvailableItemsComponent,
     pathMatch: 'full',
     canActivate: [RouteGuardsGuard]
   },
