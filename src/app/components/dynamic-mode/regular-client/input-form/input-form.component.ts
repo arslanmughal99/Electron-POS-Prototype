@@ -49,10 +49,6 @@ export class InputFormComponent implements OnInit {
       });
   }
 
-  // ngAfterViewChecked() {
-  //   this.scrollDynamicAdditem();
-  // }
-
   scrollDynamicAdditem() {
     this.scrollDiv.nativeElement.scrollTop =  this.scrollDiv.nativeElement.scrollHeight;
   }

@@ -8,6 +8,9 @@ import * as _ from 'lodash';
 import { DashboardData } from '../../../interfaces/dashboardData-interface';
 import { CalcuatedEarnigns } from '../../../interfaces/calculate-earnings-interface';
 
+// TODO: Refactor Dashboard UI
+// TODO: Update 4th theme
+// TODO: Move themes changer to another location
 
 @Component({
   selector: 'app-dashboard',
@@ -19,12 +22,12 @@ export class DashboardComponent implements OnInit {
   // Polar chart handling logic
   // tslint:disable: member-ordering
   public polarAreaChartLabels: Label[] = ['bills'];
-  public polarAreaChartData: ChartDataSets[] = [{data: [1, 2, 3, 4, 5], label: 'Bills', borderColor: '#FF6384', steppedLine: true}];
+  public polarAreaChartData: ChartDataSets[] = [{ data: [1, 2, 3, 4, 5], label: 'Bills', borderColor: '#FF6384', steppedLine: true }];
   public polarAreaLegend = true;
   public polarAreaChartType: ChartType = 'line';
   public polarAreaChartOptions: ChartOptions = {
-    legend: {display: true},
-    scales: { xAxes: [{gridLines: {color: '#7a7a7a', lineWidth: 0.2}}], yAxes: [{gridLines: {color: '#7a7a7a', lineWidth: 0.2}}] },
+    legend: { display: true },
+    scales: { xAxes: [{ gridLines: { color: '#7a7a7a', lineWidth: 0.2 } }], yAxes: [{ gridLines: { color: '#7a7a7a', lineWidth: 0.2 } }] },
   };
 
   // Earning Chart Data
@@ -38,15 +41,15 @@ export class DashboardComponent implements OnInit {
   public lineChartType = 'line';
   public lineChartOptions: ChartOptions = {
     responsive: true,
-    scales: { xAxes: [{gridLines: {color: '#7a7a7a', lineWidth: 0.2}}], yAxes: [{gridLines: {color: '#7a7a7a', lineWidth: 0.2}}] },
+    scales: { xAxes: [{ gridLines: { color: '#7a7a7a', lineWidth: 0.2 } }], yAxes: [{ gridLines: { color: '#7a7a7a', lineWidth: 0.2 } }] },
   };
 
   // Bar chart data
   public barChartOptions: ChartOptions = {
     responsive: true,
-    title: {text: 'Most Popular Categories', display: true, fontColor: '#919191', fontSize: 40},
+    title: { text: 'Most Popular Categories', display: true, fontColor: '#919191', fontSize: 40 },
     // tslint:disable-next-line: max-line-length
-    scales: { xAxes: [{gridLines: {color: '#7a7a7a', lineWidth: 0.2}}], yAxes: [{gridLines: {color: '#7a7a7a', lineWidth: 0.2}, ticks: {beginAtZero: true}}] },
+    scales: { xAxes: [{ gridLines: { color: '#7a7a7a', lineWidth: 0.2 } }], yAxes: [{ gridLines: { color: '#7a7a7a', lineWidth: 0.2 }, ticks: { beginAtZero: true } }] },
   };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
@@ -54,7 +57,7 @@ export class DashboardComponent implements OnInit {
   // public barChartPlugins = [pluginDataLabels];
 
   // tslint:disable-next-line: max-line-length
-  public barChartData: ChartDataSets[] = [{data: [], label: null}];
+  public barChartData: ChartDataSets[] = [{ data: [], label: null }];
   // backgroundColor: ['#FF6384', '#4BC0C0', '#5EB5EF', '#FFD778', '#A376FF'];
   @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
   appSettings: AppSettings;
@@ -65,34 +68,31 @@ export class DashboardComponent implements OnInit {
   private report: DashboardData;
   private earningsData: CalcuatedEarnigns[] = [];
 
-
-
   constructor(
     private _dashboardHandler: DashboardService,
     private _localStorageHandler: LocalStorageHandlerService
-    ) {}
+  ) { }
 
   ngOnInit() {
     this.appSettings = this._localStorageHandler.getFromLocalStorage('appSettings');
     // Initilize bills before anything
     this._dashboardHandler.getAllRecords
-    .then((bills: any[]) => {
-      this.earningsData = this._dashboardHandler.calculateEarnnings(bills);
-      this._prepareEarningsData(this.earningsData);
-      this._allBills = bills;
-      this.billCountAllTime = this._dashboardHandler.calculateBillsCountLastDays(this._allBills as any[]);
-      this._preparePolarChartData(this.billCountAllTime);
-       // Fetch calculated report from service
-      this._dashboardHandler.getReport(this._allBills)
-      .then(report => {
-        this.report = report as DashboardData;
-        this._prepareChartData(this.report);
-        this.billsCount = this.report.totalBillsCount;
+      .then((bills: any[]) => {
+        this.earningsData = this._dashboardHandler.calculateEarnnings(bills);
+        this._prepareEarningsData(this.earningsData);
+        this._allBills = bills;
+        this.billCountAllTime = this._dashboardHandler.calculateBillsCountLastDays(this._allBills as any[]);
+        this._preparePolarChartData(this.billCountAllTime);
+        // Fetch calculated report from service
+        this._dashboardHandler.getReport(this._allBills)
+          .then(report => {
+            this.report = report as DashboardData;
+            this._prepareChartData(this.report);
+            this.billsCount = this.report.totalBillsCount;
+          });
       });
-    });
 
   }
-
 
   // generate dataset for barchart
   private _prepareChartData(report: DashboardData) {
@@ -107,57 +107,57 @@ export class DashboardComponent implements OnInit {
       // Create a raw data set with only labels set but not data is set i.e {data: [], label: "category Name"}
       _.forEach(catObject.categories, (catCount, catName) => {
         if (!_.find(rawDataSet, each => each.label === catName.toString())) {
-          rawDataSet.push({data: [], label: catName.toString()});
+          rawDataSet.push({ data: [], label: catName.toString() });
         }
       });
-  });
+    });
 
-  _.forEach(rawDataSet, (eachRawSet) => {
-    let flag = false;
-    const indexofdataset = rawDataSet.indexOf(eachRawSet);
-    _.forEach(_.take(_.orderBy(rawCatReport, catItem => new Date(catItem.date), 'desc'), 5), (catObject) => {
-      _.forEach(catObject.categories, (catValue, catName) => {
-        if (eachRawSet.label === catName.toString()) {
-          rawDataSet[indexofdataset].data.push(catValue);
-          flag = true;
-        }
+    _.forEach(rawDataSet, (eachRawSet) => {
+      let flag = false;
+      const indexofdataset = rawDataSet.indexOf(eachRawSet);
+      _.forEach(_.take(_.orderBy(rawCatReport, catItem => new Date(catItem.date), 'desc'), 5), (catObject) => {
+        _.forEach(catObject.categories, (catValue, catName) => {
+          if (eachRawSet.label === catName.toString()) {
+            rawDataSet[indexofdataset].data.push(catValue);
+            flag = true;
+          }
 
-      });
+        });
         if (!flag) { // Will push 0 in data if label does not exist
           rawDataSet[indexofdataset].data.push(0);
         } else {
           flag = false;
         }
+      });
     });
-  });
 
-  // Will take 5 most popular categories
-  rawDataSet = _.take(_.orderBy(rawDataSet, eachOrder => _.sum(eachOrder.data), 'desc'), 5);
-  this.barChartData = rawDataSet;
+    // Will take 5 most popular categories
+    rawDataSet = _.take(_.orderBy(rawDataSet, eachOrder => _.sum(eachOrder.data), 'desc'), 5);
+    this.barChartData = rawDataSet;
 
   }
 
-    private _preparePolarChartData(billDataArray: any[]) {
-      this.polarAreaChartData[0].data = [];
-      this.polarAreaChartLabels = [];
-      billDataArray.forEach((each) => {
-        this.polarAreaChartData[0].data.push(each[1]);
-        this.polarAreaChartLabels.push(each[0]);
-      });
+  private _preparePolarChartData(billDataArray: any[]) {
+    this.polarAreaChartData[0].data = [];
+    this.polarAreaChartLabels = [];
+    billDataArray.forEach((each) => {
+      this.polarAreaChartData[0].data.push(each[1]);
+      this.polarAreaChartLabels.push(each[0]);
+    });
 
-    }
+  }
 
-    private _prepareEarningsData(detailsArray: CalcuatedEarnigns[]) {
-      this.lineChartData[0].data = [];  // earnings
-      this.lineChartData[1].data = []; // salestax
-      this.lineChartData[2].data = []; // Total
-      this.lineChartLabels = [];  // labels
-      detailsArray.forEach(eachDetail => {
-        this.lineChartData[0].data.push(eachDetail.total); // adding earnings
-        this.lineChartData[1].data.push(eachDetail.salesTax); // adding sales tax
-        this.lineChartData[2].data.push(eachDetail.salesTax + eachDetail.total); // adding sales tax
-        this.lineChartLabels.push(eachDetail.date);
-      });
-    }
+  private _prepareEarningsData(detailsArray: CalcuatedEarnigns[]) {
+    this.lineChartData[0].data = [];  // earnings
+    this.lineChartData[1].data = []; // salestax
+    this.lineChartData[2].data = []; // Total
+    this.lineChartLabels = [];  // labels
+    detailsArray.forEach(eachDetail => {
+      this.lineChartData[0].data.push(eachDetail.total); // adding earnings
+      this.lineChartData[1].data.push(eachDetail.salesTax); // adding sales tax
+      this.lineChartData[2].data.push(eachDetail.salesTax + eachDetail.total); // adding sales tax
+      this.lineChartLabels.push(eachDetail.date);
+    });
+  }
 
 }

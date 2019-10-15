@@ -1,111 +1,122 @@
-
-
 <form [formGroup]="appSettingsForm">
-<div class="app-settings-wrapper">
-  <div class="title"> <mat-label><strong>Application Settings</strong></mat-label> 
-    <mat-divider class="pmt"></mat-divider>  
-  </div>
-
-  <div class="settings">
-    <div class="smal-inp-container">
-      <div class="left-align"> 
-        <mat-form-field appearance="standard" class="small-inp-left">
-          <mat-label>Company Name</mat-label>
-          <input matInput placeholder="Imperial Inc.. etc" formControlName="companyName">
-          <mat-icon matSuffix>business</mat-icon>
-        </mat-form-field>
+  <div class="app-settings-wrapper">
+    <div class="title">
+      <div class="main-icon-heading">
+        <div>
+          <mat-icon>settings_applications</mat-icon>
+        </div>
+        <div>
+          <mat-label>&nbsp; App Settings</mat-label>
+        </div>
       </div>
-      
-      <div class="right-align">
-        <mat-form-field appearance="standard" class="small-inp-right">
-          <mat-label>Company Contact (phone or email)</mat-label>
-          <input matInput placeholder="Imperial Inc.. etc" formControlName="companyContact">
-          <mat-icon matSuffix>contact</mat-icon>
-        </mat-form-field>
-      </div>
+      <mat-divider class="pmt"></mat-divider>
     </div>
-   
 
-    <mat-divider></mat-divider>
-    
-    <div class="setting-margin">
-
+    <div class="settings pmt">
       <div class="smal-inp-container">
         <div class="left-align">
-          <mat-form-field class="small-inp-left">
-              <textarea matInput placeholder="Custom Message for Recipt End" formControlName="ccustomReciptMessage"></textarea>
+          <mat-form-field appearance="standard" class="small-inp-left">
+            <mat-label>Company Name</mat-label>
+            <input matInput placeholder="Imperial Inc.. etc" formControlName="companyName">
+            <mat-icon matSuffix>business</mat-icon>
           </mat-form-field>
         </div>
 
         <div class="right-align">
-            <mat-form-field class="small-inp-right">
-                <textarea matInput placeholder="Company Address" formControlName="companyAddress"></textarea>
+          <mat-form-field appearance="standard" class="small-inp-right">
+            <mat-label>Company Contact (phone or email)</mat-label>
+            <input matInput placeholder="Imperial Inc.. etc" formControlName="companyContact">
+            <mat-icon matSuffix>contact</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <mat-divider></mat-divider>
+
+      <div class="setting-margin">
+
+        <div class="smal-inp-container pmt">
+          <div class="left-align">
+            <mat-form-field class="small-inp-left">
+              <textarea matInput placeholder="Custom Message for Recipt End"
+                formControlName="ccustomReciptMessage"></textarea>
             </mat-form-field>
-        </div>
-      </div>
+          </div>
 
-      <div class="pmt">
+          <div class="right-align">
+            <mat-form-field class="small-inp-right">
+              <textarea matInput placeholder="Company Address" formControlName="companyAddress"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div>
           <mat-divider></mat-divider>
-      </div>
-
-      <div class="smal-inp-container">
-        <div class="pmt">
-            <mat-slide-toggle labelPosition="before" color="primary" formControlName="resetFormOnSave">Reset Invoice Form on save : </mat-slide-toggle>
         </div>
-  
-        <div class="pmt">
-          <mat-checkbox color="primary" labelPosition="before" formControlName="staticItems" (change)="onChangeStatic($event)">Static Items: </mat-checkbox>
+
+        <div class="smal-inp-container">
+          <div class="pmt">
+            <mat-slide-toggle labelPosition="before" color="primary" formControlName="resetFormOnSave">Reset Invoice
+              Form on save : </mat-slide-toggle>
+          </div>
+
+          <div class="pmt">
+            <mat-checkbox color="primary" labelPosition="before" formControlName="staticItems"
+              (change)="onChangeStatic($event)">Static Items: </mat-checkbox>
+          </div>
         </div>
-      </div>
 
-      <div class="pmt">
-        <mat-divider></mat-divider>
-      </div>
+        <div class="pmt">
+          <mat-divider></mat-divider>
+        </div>
 
-      <div>
-        <mat-form-field appearance="standard" class="large-inp-field">
+        <div>
+          <mat-form-field appearance="standard" class="large-inp-field">
             <mat-label>Counter Name or Username</mat-label>
             <input matInput placeholder="Counter 1 || Alice" formControlName="counterUser">
             <mat-icon matSuffix>supervised_user_circle</mat-icon>
           </mat-form-field>
+        </div>
+
+        <div>
+          <mat-divider></mat-divider>
+        </div>
+
+        <div class="smal-inp-container">
+          <div class="left-align">
+            <mat-form-field appearance="standard" class="small-inp-left">
+              <mat-label>Time In Seconds</mat-label>
+              <input matInput type="number" placeholder="2" formControlName="notificationDuraton">
+              <mat-icon matSuffix>timer</mat-icon>
+              <mat-hint>Notification apperaring time</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="right-align">
+            <mat-form-field appearance="standard" class="small-inp-right">
+              <mat-label>Sales Tax</mat-label>
+              <input matInput type="number" min="0" placeholder="12" formControlName="salesTaxPercent">
+              <mat-icon matSuffix>deck</mat-icon>
+              <mat-hint>Sales Tax Percentage</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+
+
       </div>
 
       <div class="pmt">
         <mat-divider></mat-divider>
       </div>
 
-      <div class="smal-inp-container">
-        <div class="left-align">
-          <mat-form-field appearance="standard" class="small-inp-left">
-            <mat-label>Time In Seconds</mat-label>
-            <input matInput type="number" placeholder="2" formControlName="notificationDuraton">
-            <mat-icon matSuffix>timer</mat-icon>
-            <mat-hint>Notification apperaring time</mat-hint>
-          </mat-form-field>
-        </div>
-        <div class="right-align">
-          <mat-form-field appearance="standard" class="small-inp-right">
-            <mat-label>Sales Tax</mat-label>
-            <input matInput type="number" min="0" placeholder="12" formControlName="salesTaxPercent">
-            <mat-icon matSuffix>deck</mat-icon>
-            <mat-hint>Sales Tax Percentage</mat-hint>
-          </mat-form-field>
-        </div>
+      <div class="pmt">
+        <button mat-raised-button class="large-inp-field pmt" color="primary" (click)="onBackupRestore()">
+          <mat-icon>settings_backup_restore</mat-icon> Backup & Restore
+        </button>
       </div>
-     
+
 
     </div>
-
-    <div class="pmt">
-      <mat-divider></mat-divider>
-    </div>
-
-    <div class="pmt">
-        <button mat-raised-button class="large-inp-field" color="primary" (click)="onBackupRestore()"><mat-icon>settings_backup_restore</mat-icon> Backup & Restore </button>
-    </div>
-
 
   </div>
-
-</div>
 </form>

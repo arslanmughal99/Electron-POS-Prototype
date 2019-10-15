@@ -1,44 +1,52 @@
 <form [formGroup]="printerForm">
 
-<div class="printer-settings-section" >
-      <div>
-        <mat-label><strong>Printer Settings</strong></mat-label>
-        <mat-divider></mat-divider>
-      </div>
-      
-      <div class="print-iter pmt">
-          <mat-form-field appearance="standard" class="short-inp">
-              <mat-label>Prints per Recipt</mat-label>
-              <input matInput placeholder="2" type="number" #printIter (change)="setPrintIter(printIter)" formControlName="printIter">
-              <mat-icon matSuffix>local_printshop</mat-icon>
-              <mat-hint>Prints per Recipt</mat-hint>
-            </mat-form-field> 
-      </div>
-
-      <div>
-          <mat-divider></mat-divider>
-      </div>
-
-      <div class="print-logo">
-          <mat-slide-toggle labelPosition="before" color="primary" (change)="printLogo($event)" formControlName="printLogo">Print Logo : </mat-slide-toggle>
-      </div>
-
-      <div>
-          <mat-divider></mat-divider>
-      </div>
-
-      <div class="logo-selector-sec">
+  <div class="printer-settings-section">
+    <div>
+      <div class="main-icon-headding">
         <div>
-          <img [src]="imageDataUrl" class="logo-preview-image">
+          <mat-icon>print</mat-icon>
         </div>
-        <div class="choose-logo-btn">
-            <button type="button" mat-raised-button (click)="fileInput.click()">Choose Logo</button>
-            <button type="button" mat-raised-button (click)="removeLogo()" class="remoe-logo-btn">Remove Logo</button>
-            <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">
-            <mat-label class="wrong-file-error" *ngIf="!imageValid">Please select a valid JPG image . <br> With size of 50KB Max.</mat-label>
+        <div>
+          <mat-label> &nbsp; Printer Settings</mat-label>
         </div>
       </div>
+      <mat-divider></mat-divider>
+    </div>
 
-</div>
+    <div class="print-iter pmt">
+      <div>
+        <mat-form-field appearance="standard" class="short-inp">
+          <mat-label>Prints per Recipt</mat-label>
+          <input matInput placeholder="2" type="number" #printIter (change)="setPrintIter(printIter)"
+            formControlName="printIter">
+          <mat-icon matSuffix>repeat</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-slide-toggle labelPosition="before" color="primary" (change)="printLogo($event)"
+          formControlName="printLogo">
+          Print Logo : </mat-slide-toggle>
+      </div>
+    </div>
+
+    <div>
+      <mat-divider></mat-divider>
+    </div>
+
+    <div class="logo-selector-sec">
+      <div>
+        <img [src]="imageDataUrl" class="logo-preview-image">
+      </div>
+      <div class="choose-logo-btn">
+        <button type="button" mat-raised-button (click)="removeLogo()">Remove Logo</button>
+        <button class="choose-logo-btn" color="primary" type="button" mat-raised-button
+          (click)="fileInput.click()">Choose Logo</button>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">
+        <mat-label class="wrong-file-error" *ngIf="!imageValid">Please select a valid JPG image . <br> With size of 50KB
+          Max.</mat-label>
+      </div>
+    </div>
+
+  </div>
 
 </form>

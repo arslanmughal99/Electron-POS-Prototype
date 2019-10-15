@@ -1,104 +1,120 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.4;
+.main-wrapper {
+  width: 100%;
 }
 
-.main-wrapper{
-    width: 100%;
+.mb-5{
+  margin-bottom: 5px;
 }
 
-.title-container{
-    margin-bottom: 10px;
-    text-align: center;
-    mat-label{
-        font-size: 15px;
-    }
+.mt-25{
+  margin-top: 25px;
 }
 
-.client-details{
-    margin-top: 20px;
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-mat-divider{
-    margin: 5px 0;
+mat-label {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
 }
 
-.item-loop{
-    display: flex;
+.client-details {
+  margin-top: 10px;
 }
 
-.item-loop-wrapper{
-    height: calc(50vh - 100px);
-    overflow: auto;
+.items-table{
+  margin-bottom: 40px;
 }
 
-.item-loop>div{
-    padding: 3px;
+mat-divider {
+  margin: 5px 0;
 }
 
-.item-loop-name{
-    flex-basis: 40%;
+.item-loop {
+  display: flex;
 }
 
-.item-price{
-    flex-basis: 20%;
+.text-center{
+  text-align: center;
 }
 
-.item-discount{
-    flex-basis: 20%;
+.item-loop-wrapper {
+  margin-top: 20px;
+  height: calc(50vh - 100px);
+  overflow: auto;
 }
 
-.item-quantity{
-    flex-basis: 20%;
+.item-loop > div {
+  padding: 3px;
 }
 
-.item-total{
-    flex-basis: 20%;
+.item-loop-name {
+  flex-basis: 40%;
 }
 
-.title-header{
-    display: flex;
+.item-price {
+  flex-basis: 20%;
 }
 
-.title-header>div{
-    padding: 3px;
+.item-discount {
+  flex-basis: 20%;
 }
 
-.item-title-head{
-    flex-basis: 40%;
+.item-quantity {
+  flex-basis: 20%;
 }
 
-.item-price-head{
-    flex-basis: 20%;
+.item-total {
+  flex-basis: 20%;
 }
 
-.item-dis-head{
-    flex-basis: 20%;
+.title-header {
+  display: flex;
 }
 
-.item-quantity-head{
-    flex-basis: 20%;
+.title-header > div {
+  padding: 3px;
 }
 
-.items-list{
-    margin-top: 20px;
+.item-title-head {
+  flex-basis: 40%;
 }
 
-.item-total-head{
-    flex-basis: 20%;
+.item-price-head {
+  flex-basis: 20%;
 }
 
-.net-total{
-    margin-top: 10px;
-    display: flex;
-    width: 100%;
+.item-dis-head {
+  flex-basis: 20%;
 }
 
-.n-total{
-    flex-basis: 50%;
-    text-align: right
+.item-quantity-head {
+  flex-basis: 20%;
 }
 
-.t-total{
-    flex-basis: 50%;
+.items-list {
+  margin-top: 20px;
+}
+
+.item-total-head {
+  flex-basis: 20%;
+}
+
+.net-total {
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+}
+
+.n-total {
+  flex-basis: 50%;
+  text-align: right;
+}
+
+.t-total {
+  flex-basis: 50%;
 }

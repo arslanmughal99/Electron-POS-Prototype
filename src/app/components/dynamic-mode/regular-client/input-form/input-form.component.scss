@@ -1,4 +1,4 @@
-.wrapper-div{
+.wrapper-div {
   overflow: hidden;
   display: flex;
   padding: 10px;
@@ -7,27 +7,24 @@
   justify-content: center;
 }
 
-.create-item{
+.create-item {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  // flex-flow: column;
-  flex-grow : 1;
+  flex-grow: 1;
   justify-content: space-between;
   overflow-x: hidden;
 }
 
-.new-items-loop{
+.new-items-loop {
   padding-top: 1%;
   overflow: auto;
 }
 
-
-.new-item-section{
+.new-item-section {
   display: flex;
   flex-direction: column;
-  height: 70%;
-  // flex: 1;
+  flex: 1;
   width: auto;
   margin-right: 1%;
   border-radius: 5px;
@@ -35,113 +32,107 @@
   overflow-x: hidden;
 }
 
+.filler {
+  padding: 22px 0;
+}
 
-.detail-section{
+.detail-section {
   height: 100%;
 }
 
-.title-client-name{
+.title-client-name {
   margin-right: 1%;
-  // flex-basis: 20%;
   height: 20%;
   width: auto;
 }
 
-
-.action-section{
+.action-section {
   flex-basis: 30%;
   width: auto;
 }
 
-.form-heading{
+.form-heading {
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   padding-left: 10px;
 }
 
-.form-subtitle{
+.form-subtitle {
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 100;
   padding-left: 10px;
 }
 
-mat-form-field{
+mat-form-field {
   margin: 0.5%;
 }
 
-.items-Heading{
+.items-Heading {
   margin-top: 10px;
 }
 
-.inp-ctrl2{
+.inp-ctrl2 {
   width: 15%;
 }
 
-.item-name-field{
+.item-name-field {
   width: 25%;
 }
 
-.delete-item-btn{
+.delete-item-btn {
   margin-left: 3px;
 }
 
-.inp-ctrl{
+.inp-ctrl {
   width: 23%;
 }
 
-.date-picket-size{
+.date-picket-size {
   width: 150px;
 }
 
-.add-item-btn{
+.add-item-btn {
   text-align: center;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
-.recipt-preview{
+.recipt-preview {
   margin-top: 30px;
 }
 
-.recipt-preview{
+.recipt-preview {
   border-left: 2px;
 }
 
-// .action-btn{
-//     // margin-left: 3px;
-// }
-
-.reset-btn{
+.reset-btn {
   margin-right: 10px;
 }
 
-.action-btn-div{
+.action-btn-div {
   margin-top: 10px;
 }
 
-.title-content{
+.title-content {
   display: flex;
   justify-content: space-between;
 }
 
-.print-btn{
+.print-btn {
   width: 59%;
   margin-left: 1%;
 }
 
-.save-btn{
+.save-btn {
   width: 40%;
 }
 
-
-@media only screen and(max-width: 1284px){
-  .items-Heading{
-      margin-top: 30px;
+@media only screen and(max-width: 1284px) {
+  .items-Heading {
+    margin-top: 30px;
   }
-
 }
-

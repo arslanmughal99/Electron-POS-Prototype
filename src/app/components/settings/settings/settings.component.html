@@ -1,10 +1,12 @@
-<div class="settings-wrapper">
-    <div class="setting-sec">
-        <!-- PRINTER SETTINGS -->
-        <app-printer-config></app-printer-config>
-    </div>
-    <div class="setting-sec">
+<div class="main-wrapper">
+  <mat-card class="mat-elevation-z5 settings-wrapper">
+      <mat-card class="mat-elevation-z5 setting-sec">
         <!-- APPLICATION SETTING -->
         <app-application-settings></app-application-settings>
-    </div>
+      </mat-card>
+      <mat-card class="mat-elevation-z5 setting-sec">
+          <!-- PRINTER SETTINGS -->
+          <app-printer-config></app-printer-config>
+      </mat-card>
+  </mat-card>
 </div>

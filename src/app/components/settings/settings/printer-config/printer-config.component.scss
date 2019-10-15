@@ -1,49 +1,57 @@
-.printer-settings-section{
-    display: flex;
-    flex-direction: column;
+.printer-settings-section {
+  display: flex;
+  flex-direction: column;
 }
 
-mat-divider{
-    margin: 10px auto;
+mat-divider {
+  margin: 10px auto;
 }
 
-.short-inp{
-    width: 150px;
+.short-inp {
+  width: 150px;
+  margin-bottom: -5px;
 }
 
-.print-iter{
-
+.print-iter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.print-logo{
-
+.print-logo {
 }
 
-.logo-preview-image{
-    width: auto;
-    max-width: 99%;
-    height: 250px;
-    // max-height: 300%;
+.logo-selector-sec {
+  margin-top: 25px;
 }
 
-mat-label{
-    margin-right: 10px; 
-    font-family: Arial, Helvetica, sans-serif;
+.logo-preview-image {
+  width: auto;
+  max-width: 99%;
+  height: 250px;
+  // max-height: 300%;
 }
 
-.pmt{
-    margin-top: 10px; 
+mat-label {
+  margin-right: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.wrong-file-error{
-    margin-left: 10px;
-    color: rgb(255, 77, 77);
+.pmt {
+  margin-top: 10px;
 }
 
-.choose-logo-btn{
-    margin-top: 10px;
+.wrong-file-error {
+  margin-left: 10px;
+  color: rgb(255, 77, 77);
 }
 
-.remoe-logo-btn{
-    margin-left: 10px;
+.choose-logo-btn {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.main-icon-headding {
+  display: flex;
+  align-items: center;
 }

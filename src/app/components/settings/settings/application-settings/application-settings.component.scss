@@ -1,45 +1,49 @@
-mat-label{
-    font-family: Arial, Helvetica, sans-serif;
+mat-label {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.app-settings-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.main-icon-heading {
+  display: flex;
+  align-items: center;
 }
 
-.pmt{
-    margin-top: 10px;
+.app-settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.large-inp-field{
-    width: 100%;
+.pmt {
+  margin-top: 10px;
 }
 
-
-.setting-margin{
-    margin-top: 5px;
+.large-inp-field {
+  width: 100%;
 }
 
-.small-inp-left{
-    padding-right: 5px;
-    width: 100%;
+.setting-margin {
+  margin-top: 5px;
 }
 
-.small-inp-right{
-    padding-left: 5px;
-    width: 100%;
+.small-inp-left {
+  padding-right: 5px;
+  width: 100%;
 }
 
-.smal-inp-container{
-    display: flex;
-    justify-content: space-between;
+.small-inp-right {
+  padding-left: 5px;
+  width: 100%;
 }
 
-.right-align{
-    width: 49%;
+.smal-inp-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.left-align{
-    width: 49%;
+.right-align {
+  width: 49%;
+}
+
+.left-align {
+  width: 49%;
 }

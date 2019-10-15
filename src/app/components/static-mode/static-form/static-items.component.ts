@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { StaticItem } from '../../../interfaces/staticItems-interface';
 import { StaticItemDbService } from '../../../services/staticItemDB/static-item-db.service';
 import { MatSnackBar } from '@angular/material';
@@ -22,6 +22,7 @@ export class StaticItemsComponent implements OnInit {
   displayedItems: StaticItem[];
   appSettings: AppSettings;
   reciptPreviewData;
+  @ViewChild('staticSelectedItem', { static: true }) private itemLoopScroll: ElementRef;
 
   constructor(
     private _fb: FormBuilder,
@@ -65,6 +66,12 @@ export class StaticItemsComponent implements OnInit {
     return this.cartItemsForm.get('itemsPurchased') as FormArray;
   }
 
+  scrollItemLoop() {
+    if (this.itemLoopScroll) {
+      this.itemLoopScroll.nativeElement.scrollTop =  this.itemLoopScroll.nativeElement.scrollHeight;
+    }
+  }
+
   onAddItem(_id: string) {
     const forCart = _.find(this.allitems, (eachItem) => {
       return eachItem._id === _id;
@@ -81,6 +88,11 @@ export class StaticItemsComponent implements OnInit {
       return eachItem._id === _id;
     });
     this.getItemsFormArray.push(formSchema);
+
+    // Scroll div on each new item added to form array
+    setTimeout(() => {
+      this.scrollItemLoop();
+    }, 1);
   }
 
 
