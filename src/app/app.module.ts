@@ -1,16 +1,16 @@
 // tslint:disable: max-line-length
-import 'reflect-metadata';
-import '../polyfills';
+import "reflect-metadata";
+import "../polyfills";
 
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { ChartsModule } from 'ng2-charts';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { ChartsModule } from "ng2-charts";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { CoreModule } from "./core/core.module";
+import { SharedModule } from "./shared/shared.module";
+import { AppRoutingModule } from "./app-routing.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {
   MatCardModule,
   MatToolbarModule,
@@ -33,50 +33,54 @@ import {
   MatBadgeModule,
   MatRippleModule,
   MatTooltipModule,
-} from '@angular/material';
-import { MatListModule } from '@angular/material/list';
+} from "@angular/material";
+import { MatListModule } from "@angular/material/list";
 
+// import { MatSidenavModule } from "@angular/material/sidenav";
+// import { MatFormFieldModule } from "@angular/material/form-field";
+// import { MatSelectModule } from "@angular/material/select";
+// import { MatToolbarModule } from "@angular/material/toolbar";
+// import { MatCardModule } from "@angular/material/card";
+// import { MatListModule } from "@angular/material/list";
 // NG Translate
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
-
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './components/shared/dashboard/dashboard.component';
-import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
-import { RegularClientComponent } from './components/dynamic-mode/regular-client/regular-client.component';
-import { InputFormComponent } from './components/dynamic-mode/regular-client/input-form/input-form.component';
-import { CategoryComponent } from './components/shared/attributes/category/category.component';
-import { SettingsComponent } from './components/settings/settings/settings.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { ReciptViewComponent } from './components/dynamic-mode/recipt-view/recipt-view.component';
-import { UnitsComponent } from './components/shared/attributes/units/units.component';
-import { PrinterConfigComponent } from './components/settings/settings/printer-config/printer-config.component';
-import { ApplicationSettingsComponent } from './components/settings/settings/application-settings/application-settings.component';
-import { RecordsComponent } from './components/dynamic-mode/records/records/records.component';
-import { ViewRecordComponent } from './components/dynamic-mode/records/view/view-record/view-record.component';
-import { UpdateRecordComponent } from './components/dynamic-mode/records/view/update/update-record/update-record.component';
-import { StaticItemsComponent } from './components/static-mode/static-form/static-items.component';
-import { AvailableItemsComponent } from './components/shared/items/available-items/available-items/available-items.component';
-import { ReciptPreviewComponent } from './components/static-mode/recipt-preview/recipt-preview.component';
-import { StaticRecordsComponent } from './components/static-mode/static-records/static-records/static-records.component';
-import { ViewDialogComponent } from './components/static-mode/static-records/view-dialog/view-dialog/view-dialog.component';
-import { BackupRestoreComponent } from './components/settings/settings/backup-restore/backup-restore/backup-restore.component';
-import { UiSettingsComponent } from './components/shared/alerts/ui-settings/ui-settings/ui-settings.component';
-import { DataTimeComponent } from './components/shared/alerts/datetime/data-time/data-time.component';
-import { LicenseDaysComponent } from './components/shared/alerts/license/licensedays/license-days/license-days.component';
-import { UpdatesComponent } from './components/shared/alerts/updates/updates/updates.component';
-import { InstallUpdateComponent } from './components/shared/alerts/updates/install-update/install-update.component';
-import { AttributesComponent } from './components/shared/attributes/attributes/attributes.component';
-import { AddAttributeComponent } from './components/shared/attributes/add-attribute/add-attribute.component';
-import { ItemFormComponent } from './components/shared/items/available-items/item-form/item-form.component';
-
+import { AppComponent } from "./app.component";
+import { DashboardComponent } from "./components/shared/dashboard/dashboard.component";
+import { ToolbarComponent } from "./components/shared/toolbar/toolbar.component";
+import { RegularClientComponent } from "./components/dynamic-mode/regular-client/regular-client.component";
+import { InputFormComponent } from "./components/dynamic-mode/regular-client/input-form/input-form.component";
+import { CategoryComponent } from "./components/shared/attributes/category/category.component";
+import { SettingsComponent } from "./components/settings/settings/settings.component";
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSortModule } from "@angular/material/sort";
+import { ReciptViewComponent } from "./components/dynamic-mode/recipt-view/recipt-view.component";
+import { UnitsComponent } from "./components/shared/attributes/units/units.component";
+import { PrinterConfigComponent } from "./components/settings/settings/printer-config/printer-config.component";
+import { ApplicationSettingsComponent } from "./components/settings/settings/application-settings/application-settings.component";
+import { RecordsComponent } from "./components/dynamic-mode/records/records/records.component";
+import { ViewRecordComponent } from "./components/dynamic-mode/records/view/view-record/view-record.component";
+import { UpdateRecordComponent } from "./components/dynamic-mode/records/view/update/update-record/update-record.component";
+import { StaticItemsComponent } from "./components/static-mode/static-form/static-items.component";
+import { AvailableItemsComponent } from "./components/shared/items/available-items/available-items/available-items.component";
+import { ReciptPreviewComponent } from "./components/static-mode/recipt-preview/recipt-preview.component";
+import { StaticRecordsComponent } from "./components/static-mode/static-records/static-records/static-records.component";
+import { ViewDialogComponent } from "./components/static-mode/static-records/view-dialog/view-dialog/view-dialog.component";
+import { BackupRestoreComponent } from "./components/settings/settings/backup-restore/backup-restore/backup-restore.component";
+import { UiSettingsComponent } from "./components/shared/alerts/ui-settings/ui-settings/ui-settings.component";
+import { DataTimeComponent } from "./components/shared/alerts/datetime/data-time/data-time.component";
+import { LicenseDaysComponent } from "./components/shared/alerts/license/licensedays/license-days/license-days.component";
+import { UpdatesComponent } from "./components/shared/alerts/updates/updates/updates.component";
+import { InstallUpdateComponent } from "./components/shared/alerts/updates/install-update/install-update.component";
+import { AttributesComponent } from "./components/shared/attributes/attributes/attributes.component";
+import { AddAttributeComponent } from "./components/shared/attributes/add-attribute/add-attribute.component";
+import { ItemFormComponent } from "./components/shared/items/available-items/item-form/item-form.component";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
@@ -108,7 +112,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     InstallUpdateComponent,
     AttributesComponent,
     AddAttributeComponent,
-    ItemFormComponent
+    ItemFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -147,12 +151,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
   ],
   // tslint:disable-next-line: max-line-length
   entryComponents: [
@@ -166,9 +170,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     LicenseDaysComponent,
     UpdatesComponent,
     InstallUpdateComponent,
-    ItemFormComponent
+    ItemFormComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 {
   "productName": "Pulsar",
-  "appId": "com.possystem.pulsar",
+  "appId": "com.gravitonapps.pulsar",
   "publish": {
     "provider": "github"
   },
